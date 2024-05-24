@@ -17,7 +17,7 @@
               src = self;
               nativeBuildInputs = [ pkgs.nodePackages.prettier ];
             } ''
-            prettier --check ${self}/docs/index.html
+            prettier --check ${self}/public/index.html
             touch $out
           '';
           typos = pkgs.runCommandLocal "run-typos"
