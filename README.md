@@ -5,4 +5,6 @@ is basically just a single HTML file with some bootstrap CSS.
 
 ## Deployment
 
-This website is hosted on GitHub as GitHub page but with a custom domain.
+This website is currently deployed as part of this Nix config:
+
+https://github.com/phip1611/nixos-configs/pull/84
