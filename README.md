@@ -8,3 +8,9 @@ is basically just a single HTML file with some bootstrap CSS.
 This website is currently deployed as part of this Nix config:
 
 https://github.com/phip1611/nixos-configs/pull/84
+
+and reachable under <https://ukvly.org>.
+
+## Format Code
+
+- run `$ prettier public/index.html -w`
