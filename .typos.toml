@@ -1,0 +1,6 @@
+# Configuration for https://github.com/crate-ci/typos
+
+[files]
+extend-exclude = [
+    "**/*.min.{css,js}",
+]
