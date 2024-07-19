@@ -13,4 +13,5 @@ and reachable under <https://ukvly.org>.
 
 ## Format Code
 
-- run `$ prettier public/index.html -w`
+- run `$ prettier public/index.html -w` \
+  In a Nix shell: `$ nix develop --command bash -c "prettier public/index.html -w"`
