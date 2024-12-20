@@ -29,14 +29,19 @@
             touch $out
           '';
         };
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            nixpkgs-fmt
-            # format: `$ prettier -w index.html`
-            nodePackages.prettier
-            typos
-          ];
-        };
+        devShells.default =
+          let
+            serve = pkgs.callPackage ./nix/serve.nix { };
+          in
+          pkgs.mkShell {
+            packages = with pkgs; [
+              nixpkgs-fmt
+              # format: `$ prettier -w index.html`
+              nodePackages.prettier
+              serve
+              typos
+            ];
+          };
         formatter = pkgs.nixpkgs-fmt;
       };
       flake = {
