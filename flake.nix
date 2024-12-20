@@ -4,7 +4,7 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
   };
 
   outputs = { self, flake-parts, ... }@inputs:
@@ -29,14 +29,19 @@
             touch $out
           '';
         };
-        devShells.default = pkgs.mkShell {
-          packages = with pkgs; [
-            nixpkgs-fmt
-            # format: `$ prettier -w index.html`
-            nodePackages.prettier
-            typos
-          ];
-        };
+        devShells.default =
+          let
+            serve = pkgs.callPackage ./nix/serve.nix { };
+          in
+          pkgs.mkShell {
+            packages = with pkgs; [
+              nixpkgs-fmt
+              # format: `$ prettier -w index.html`
+              nodePackages.prettier
+              serve
+              typos
+            ];
+          };
         formatter = pkgs.nixpkgs-fmt;
       };
       flake = {
