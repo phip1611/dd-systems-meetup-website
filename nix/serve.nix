@@ -1,9 +1,5 @@
-{ lib, httplz, writeShellScriptBin }:
+{ lib, live-server, writeShellScriptBin }:
 
-let
-  src = ../public;
-in
 writeShellScriptBin "serve" ''
-  ${lib.getExe httplz} ${src}
+  ${lib.getExe live-server} ./public --open --index
 ''
-
