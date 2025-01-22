@@ -38,6 +38,26 @@
       src="bootstrap.bundle.min.js"
       integrity="sha256-CDOy6cOibCWEdsRiZuaHf8dSGGJRYuBGC+mjoJimHGw="
     ></script>
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['disableCookies']);
+      _paq.push(['enableHeartBeatTimer']);
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        /* Backed by Matomo instance which truncates IP adresses */
+        var u="https://yikes.phip1611.de/";
+        // Rewritten to matomo.php on server.
+        _paq.push(['setTrackerUrl', u+'yikes.php']);
+        _paq.push(['setSiteId', '12']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        // Rewritten to matomo.js on server.
+        g.async=true; g.src=u+'yikes.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
   </head>
   <body>
     <div class="container py-4">
