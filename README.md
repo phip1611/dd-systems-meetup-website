@@ -1,4 +1,4 @@
-# DD Systems Meetup Website (Hosted via GitHub Pages)
+# DD Systems Meetup Website
 
 This repository hosts the content of the systems meetup website. The website
 is basically just a single HTML file with some bootstrap CSS.
