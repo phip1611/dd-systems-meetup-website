@@ -15,3 +15,7 @@ and reachable under <https://ukvly.org>.
 
 - run `$ prettier public/index.html -w` \
   In a Nix shell: `$ nix develop --command bash -c "prettier public/index.html -w"`
+
+## Serve Locally
+
+- run `$ nix develop --command "serve"`
