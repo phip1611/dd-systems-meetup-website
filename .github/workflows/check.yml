@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v30
+      - uses: cachix/install-nix-action@v31
       - run: |
           nix fmt
           # Since there is no "nix fmt --check", we use the workaround and see
@@ -20,5 +20,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: cachix/install-nix-action@v30
+      - uses: cachix/install-nix-action@v31
       - run: nix flake check
