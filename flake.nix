@@ -4,7 +4,7 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     flake-parts.inputs.nixpkgs-lib.follows = "nixpkgs";
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
   };
 
   outputs = { self, flake-parts, ... }@inputs:
@@ -35,14 +35,16 @@
           in
           pkgs.mkShell {
             packages = with pkgs; [
-              nixpkgs-fmt
+              fd
+              libwebp
+              nixfmt-rfc-style
               # format: `$ prettier -w index.html`
               nodePackages.prettier
               serve
               typos
             ];
           };
-        formatter = pkgs.nixpkgs-fmt;
+        formatter = pkgs.nixfmt-rfc-style;
       };
       flake = {
         # Put your original flake attributes here.
