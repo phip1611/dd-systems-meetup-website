@@ -19,3 +19,8 @@ and reachable under <https://ukvly.org>.
 ## Serve Locally
 
 - run `$ nix develop --command "serve"`
+
+## Converting Images to Webp
+
+- Navigate into the folder
+- run `$ fd --exec cwebp {} -o {}.webp -q 80`
