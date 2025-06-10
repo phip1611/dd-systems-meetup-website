@@ -4,16 +4,27 @@ on: [ push, pull_request, merge_group ]
 
 jobs:
   nix-fmt:
-    name: check nix fmt
+    name: Check Nix formatting
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: cachix/install-nix-action@v31
-      - run: |
-          nix fmt
-          # Since there is no "nix fmt --check", we use the workaround and see
-          # if git files have been changed.
-          git diff --quiet
+      - name: Check Nix formatting
+        run: |
+          echo "nix fmt version:"
+          nix fmt -- --version
+
+          set +e
+          # "nixfmt" doesn't has a nice diff output for its `--check` command,
+          # therefore we use `git diff`
+          find . -name "*.nix" -type f -exec nix fmt {} \+
+
+          # Show format diff
+          git --no-pager diff
+
+          # Report error, fail pipeline job
+          set -e
+          git --no-pager diff --quiet
 
   checks:
     name: nix flake check
