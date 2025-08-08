@@ -45,7 +45,7 @@
                 fd
                 libwebp
                 nixfmt-rfc-style
-                # format: `$ prettier -w index.html`
+                # format: `$ prettier -w public/index.html`
                 nodePackages.prettier
                 serve
                 typos

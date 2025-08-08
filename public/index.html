@@ -82,11 +82,11 @@
         <div class="col">
           <div class="alert alert-primary" role="alert">
             <h2 class="display-6 fw-bold">Next Meetup</h2>
-            <p class="fs-5 mb-0">Thu., 18:00 o'clock, Aug 7th @ Amazon AWS</p>
+            <p class="fs-5 mb-0">Thu., Oct 2nd, 18:00-20:00 @ Huawei</p>
             <p>
-              <small>
-                2025 fully booked already! Oct 2nd @ Huawei, Dec 4th @
-                Cyberus</small
+              <small
+                >2025 fully booked already! Dec 4th @ Cyberus Technology. Open
+                for 2026 hosts!</small
               >
             </p>
           </div>
@@ -104,7 +104,7 @@
             </p>
             <ul>
               <li>ARM, RISC-V, x86</li>
-              <li>Academia and Associated Research</li>
+              <li>Academia and Research</li>
               <li>Device Drivers</li>
               <li>Firmware</li>
               <li>Operating Systems</li>
@@ -149,22 +149,91 @@
           <div class="h-100 p-4 bg-light border rounded-3">
             <h3>Past Meetups</h3>
             <div class="accordion mt-3" id="pastMeetupsAccordion">
+              <!-- Accordion item: latest meetup -->
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
                     class="accordion-button"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseFour"
+                    data-bs-target="#collapse_latest"
                     aria-expanded="true"
-                    aria-controls="collapseFour"
+                    aria-controls="collapse_latest"
+                  >
+                    2025-08-07 @ Amazon AWS
+                  </button>
+                </h2>
+                <div
+                  id="collapse_latest"
+                  class="accordion-collapse collapse show"
+                  data-bs-parent="#pastMeetupsAccordion"
+                >
+                  <div class="accordion-body">
+                    <p>
+                      Our summer meetup brought together
+                      <strong>35 attendees</strong>
+                      from over 12 affiliations. The evening featured two
+                      insightful talks and one pitch:
+                    </p>
+                    <ol>
+                      <li>
+                        <strong
+                          ><code>git-llm-pick</code> -- extending
+                          git-cherry-pick with an LLM</strong
+                        >
+                        – Norbert Manthey, Amazon AWS
+                      </li>
+                      <li>
+                        <strong
+                          >Pitch for the Euromicro Conference on Real-Time
+                          Systems</strong
+                        >
+                        – Michael Roitzsch, Barkhausen Institut
+                      </li>
+                      <li>
+                        <strong
+                          >Package-Validation-Tool: Validating the origins of OS
+                          distro packages</strong
+                        >
+                        – Dmitrii Kuvaiskii, Amazon AWS
+                      </li>
+                    </ol>
+                    <p>
+                      After that, we had tasty food and drinks with lively
+                      discussions until 22:00 o'clock.
+                    </p>
+                    <img
+                      src="images/meetups/2025-08-07/20250807_183031.jpg.webp"
+                      alt="Systems Meetup at Amazon AWS"
+                      title="Systems Meetup at Amazon AWS"
+                      class="img-fluid"
+                    />
+                    <img
+                      src="images/meetups/2025-08-07/20250807_183043.jpg.webp"
+                      alt="Systems Meetup at Amazon AWS"
+                      title="Systems Meetup at Amazon AWS"
+                      class="mt-3 img-fluid"
+                    />
+                  </div>
+                </div>
+              </div>
+              <!-- 2025-05-08 Genode Labs -->
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapse_2025_05_08"
+                    aria-expanded="true"
+                    aria-controls="collapse_2025_05_08"
                   >
                     2025-05-08 @ Genode Labs
                   </button>
                 </h2>
                 <div
-                  id="collapseFour"
-                  class="accordion-collapse collapse show"
+                  id="collapse_2025_05_08"
+                  class="accordion-collapse collapse"
                   data-bs-parent="#pastMeetupsAccordion"
                 >
                   <div class="accordion-body">
@@ -218,21 +287,22 @@
                   </div>
                 </div>
               </div>
+              <!-- 2025-01-21 TU Dresden -->
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
                     class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseThree"
+                    data-bs-target="#collapse_2025_01_21"
                     aria-expanded="true"
-                    aria-controls="collapseThree"
+                    aria-controls="collapse_2025_01_21"
                   >
                     2025-01-21 @ Andreas-Pfitzmann-Bau, TU Dresden
                   </button>
                 </h2>
                 <div
-                  id="collapseThree"
+                  id="collapse_2025_01_21"
                   class="accordion-collapse collapse"
                   data-bs-parent="#pastMeetupsAccordion"
                 >
@@ -286,21 +356,22 @@
                   </div>
                 </div>
               </div>
+              <!-- 2024-07-18 Barkhausen Institut -->
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
                     class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseTwo"
+                    data-bs-target="#collapse_2024_07_18"
                     aria-expanded="false"
-                    aria-controls="collapseTwo"
+                    aria-controls="collapse_2024_07_18"
                   >
                     2024-07-18 @ Barkhausen Institut
                   </button>
                 </h2>
                 <div
-                  id="collapseTwo"
+                  id="collapse_2024_07_18"
                   class="accordion-collapse collapse"
                   data-bs-parent="#pastMeetupsAccordion"
                 >
@@ -328,21 +399,22 @@
                   </div>
                 </div>
               </div>
+              <!-- 2024-05-16 @ Cyberus Technology -->
               <div class="accordion-item">
                 <h2 class="accordion-header">
                   <button
                     class="accordion-button collapsed"
                     type="button"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
+                    data-bs-target="#collapse_2024_05_16"
                     aria-expanded="false"
-                    aria-controls="collapseOne"
+                    aria-controls="collapse_2024_05_16"
                   >
                     2024-05-16 @ Cyberus Technology
                   </button>
                 </h2>
                 <div
-                  id="collapseOne"
+                  id="collapse_2024_05_16"
                   class="accordion-collapse collapse"
                   data-bs-parent="#pastMeetupsAccordion"
                 >
@@ -507,8 +579,9 @@
           <div class="h-100 p-4 bg-light border rounded-3">
             <h3>When and Where</h3>
             <p>
-              Every 3-4 months, usually on a Thursday 18:00 to 22:00 o'clock.
-              The location changes. Feel free to reach out and host a meetup!
+              Every 2-4 months with 3-5 meetups per year, usually on a Thursday
+              18:00 to 22:00 o'clock. The location changes. Feel free to reach
+              out and host a meetup!
             </p>
           </div>
         </div>
