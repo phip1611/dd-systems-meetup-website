@@ -50,6 +50,7 @@
             serve = pkgs.callPackage ./nix/serve.nix { };
           in
           pkgs.mkShell {
+            inputsFrom = builtins.attrValues self.packages.${pkgs.system};
             packages = with pkgs; [
               fd
               libwebp
@@ -61,6 +62,20 @@
             ];
           };
       });
+
+      packages = forAllSystems (
+        pkgs:
+        let
+          website = pkgs.runCommand "website" { } ''
+            mkdir $out
+            cp -r ${./public}/. $out
+          '';
+        in
+        {
+          inherit website;
+          default = website;
+        }
+      );
 
       formatter = forAllSystems (pkgs: pkgs.nixfmt-tree);
     };
