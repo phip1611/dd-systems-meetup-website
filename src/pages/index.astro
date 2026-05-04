@@ -2,6 +2,7 @@
 import InfoCard from "../components/InfoCard.astro";
 import PastMeetups from "../components/PastMeetups.astro";
 import { pastMeetups } from "../data/meetups";
+import { nextMeetup } from "../data/next-meetup";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const description =
@@ -28,11 +29,11 @@ const description =
         <div class="alert alert-primary" role="alert">
           <h2 class="display-6 fw-bold">Next Meetup</h2>
           <p class="fs-5 mb-0">
-            📅 Thu., May 21st, 2026 ⏰ 18:00 - 22:00 📍 Genode Labs
+            📅 {nextMeetup.date} ⏰ {nextMeetup.time} 📍 {nextMeetup.location}
           </p>
           <p>
-            <small>Registration opens end of April.</small><br />Open for more
-            2026 hosts - please reach out!
+            <small>{nextMeetup.registrationNote}</small><br />
+            {nextMeetup.hostNote}
           </p>
         </div>
       </div>
