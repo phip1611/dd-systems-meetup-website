@@ -13,7 +13,9 @@ and reachable under <https://ukvly.org>.
 
 ## Format Code
 
-- formatting is handled by a later tooling step
+- run `$ npm run format`
+- check formatting with `$ npm run format:check` or
+  `$ prettier --check .` if you use the Nix shell
 
 ## Serve Locally
 

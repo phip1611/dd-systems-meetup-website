@@ -32,12 +32,7 @@
                 nativeBuildInputs = [ pkgs.prettier ];
               }
               ''
-                prettier --check \
-                  ${self}/README.md \
-                  ${self}/astro.config.mjs \
-                  ${self}/package.json \
-                  ${self}/public/manifest.json \
-                  ${self}/tsconfig.json
+                prettier --check .
                 touch $out
               '';
           typos =
@@ -71,11 +66,12 @@
       packages = forAllSystems (
         system: pkgs:
         let
+          npmDepsHash = "sha256-m5iiO5IPb4kEL1uyjv5ACZXSXC6gPAMQrtCxwgOm8kU=";
           website = pkgs.buildNpmPackage {
             pname = "dd-systems-meetup-website";
             version = "0.0.0-snapshot";
             src = self;
-            npmDepsHash = "sha256-oFdgc9G8iw/RbzYlTvRCfFB/jK0cCwFTVkHQdh7N9jo=";
+            inherit npmDepsHash;
             npmBuildScript = "build";
 
             installPhase = ''

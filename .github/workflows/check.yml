@@ -1,6 +1,6 @@
 name: check repo
 
-on: [ push, pull_request, merge_group ]
+on: [push, pull_request, merge_group]
 
 jobs:
   nix-fmt:
