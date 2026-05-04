@@ -1,7 +1,7 @@
 # DD Systems Meetup Website
 
 This repository hosts the content of the systems meetup website. The website
-is basically just a single HTML file with some bootstrap CSS.
+is built with Astro and rendered as a static site.
 
 ## Deployment
 
@@ -13,12 +13,34 @@ and reachable under <https://ukvly.org>.
 
 ## Format Code
 
-- run `$ prettier -w public/index.html` \
-  In a Nix shell: `$ nix develop --command bash -c "prettier public/index.html -w"`
+- run `$ npm install` once to get `prettier`
+- check formatting with: `$ npm run format:check`
+- change formatting with: `$ npm run format`
 
 ## Serve Locally
 
-- run `$ nix develop --command "serve"`
+- run `$ npm install` once
+- run `$ npm run dev -- --open`
+- in a Nix shell: `$ nix develop --command npm run dev -- --open`
+
+## Build Static Website
+
+- run `$ npm install` once
+- run `$ npm run build`
+- the generated static site is in `dist/`
+- build with Nix: `$ nix build .#website`
+
+## Website Structure
+
+- `src/pages/index.astro` is the single page. Astro turns this file into
+  `index.html` during the static build.
+- `src/layouts/BaseLayout.astro` owns the HTML shell, metadata, analytics, and
+  shared assets.
+- `src/components/` contains reusable page sections.
+- `src/data/meetups.ts` contains the past meetup data. Add a new past event by
+  inserting a new object at the top of `pastMeetups`.
+- Files in `public/` are copied unchanged to the site root. Put meetup images
+  below `public/images/meetups/...` and reference them as `/images/...`.
 
 ## Converting Images to Webp
 

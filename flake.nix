@@ -24,17 +24,20 @@
     in
     {
       checks = forAllSystems (
-        system: pkgs: {
-          fmt =
-            pkgs.runCommandLocal "check-html-fmt"
-              {
-                src = self;
-                nativeBuildInputs = [ pkgs.prettier ];
-              }
-              ''
-                prettier --check ${self}/public/index.html
-                touch $out
-              '';
+        system: pkgs:
+        let
+          websiteNpmPackage = self.packages.${system}.website;
+        in
+        {
+          fmt = websiteNpmPackage.overrideAttrs {
+            dontNpmBuild = true;
+            installPhase = ''
+              runHook preInstall
+              npm run format:check
+              touch $out
+              runHook postInstall
+            '';
+          };
           typos =
             pkgs.runCommandLocal "run-typos"
               {
@@ -50,31 +53,36 @@
 
       devShells = forAllSystems (
         system: pkgs: {
-          default =
-            let
-              serve = pkgs.callPackage ./nix/serve.nix { };
-            in
-            pkgs.mkShell {
-              inputsFrom = builtins.attrValues self.packages.${system};
-              packages = with pkgs; [
-                fd
-                libwebp
-                # format: `$ prettier -w public/index.html`
-                prettier
-                serve
-                typos
-              ];
-            };
+          default = pkgs.mkShell {
+            inputsFrom = builtins.attrValues self.packages.${system};
+            packages = with pkgs; [
+              fd
+              libwebp
+              nodejs # comes with npm
+              typos
+            ];
+          };
         }
       );
 
       packages = forAllSystems (
         system: pkgs:
         let
-          website = pkgs.runCommand "website" { } ''
-            mkdir $out
-            cp -r ${./public}/. $out
-          '';
+          npmDepsHash = "sha256-m5iiO5IPb4kEL1uyjv5ACZXSXC6gPAMQrtCxwgOm8kU=";
+          website = pkgs.buildNpmPackage {
+            pname = "dd-systems-meetup-website";
+            version = "0.0.0-snapshot";
+            src = self;
+            inherit npmDepsHash;
+            npmBuildScript = "build";
+
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out
+              cp -r dist/. $out/
+              runHook postInstall
+            '';
+          };
         in
         {
           inherit website;

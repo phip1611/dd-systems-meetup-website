@@ -1,6 +1,6 @@
 name: check repo
 
-on: [ push, pull_request, merge_group ]
+on: [push, pull_request, merge_group]
 
 jobs:
   nix-fmt:
@@ -26,7 +26,16 @@ jobs:
           set -e
           git --no-pager diff --quiet
 
+  website-build:
+    name: Build static website
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: cachix/install-nix-action@v31
+      - run: nix build .#website
+
   checks:
+    # Also runs all formatting checks (except for Nix itself)
     name: nix flake check
     runs-on: ubuntu-latest
     steps:

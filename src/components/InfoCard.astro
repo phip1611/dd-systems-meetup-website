@@ -1,0 +1,14 @@
+---
+/* Reusable Bootstrap card wrapper for homepage information sections. */
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class={`h-100 p-4 bg-light border rounded-3`}>
+  <h3>{title}</h3>
+  <slot />
+</div>
