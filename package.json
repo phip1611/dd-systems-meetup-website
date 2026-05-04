@@ -10,6 +10,7 @@
     "format:check": "prettier --check ."
   },
   "devDependencies": {
+    "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.4",
     "astro": "6.2.2",
     "prettier": "^3.8.3",
