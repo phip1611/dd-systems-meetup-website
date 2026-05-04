@@ -13,18 +13,20 @@ and reachable under <https://ukvly.org>.
 
 ## Format Code
 
-- run `$ npm run format`
-- check formatting with `$ npm run format:check` or
-  `$ prettier --check .` if you use the Nix shell
+- run `$ npm install` once to get `prettier`
+- check formatting with:  `$ npm run format:check`
+- change formatting with: `$ npm run format`
+- in a Nix shell: simply run `$ prettier --check .` or with `-w`
 
 ## Serve Locally
 
-- run `$ npm install`
+- run `$ npm install` once
 - run `$ npm run dev -- --open`
 - in a Nix shell: `$ nix develop --command npm run dev -- --open`
 
 ## Build Static Website
 
+- run `$ npm install` once
 - run `$ npm run build`
 - the generated static site is in `dist/`
 - build with Nix: `$ nix build .#website`
