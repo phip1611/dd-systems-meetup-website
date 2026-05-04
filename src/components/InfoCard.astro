@@ -3,19 +3,26 @@
 
 interface Props {
   title: string;
+  label: string;
 }
 
-const { title } = Astro.props;
+const { label, title } = Astro.props;
 ---
 
 <section
-  class="h-full rounded-xl border border-slate-200 bg-white p-6 shadow-sm shadow-slate-200/70"
+  class="relative h-full overflow-hidden rounded-2xl border border-slate-200/80 bg-white/90 p-6 shadow-sm shadow-slate-200/80 backdrop-blur"
 >
+  <div class="absolute inset-x-0 top-0 h-1 bg-cyan-700/80"></div>
+  <p
+    class="mb-2 font-mono text-[0.68rem] uppercase tracking-[0.24em] text-cyan-800"
+  >
+    {label}
+  </p>
   <h3 class="mb-4 text-xl font-semibold tracking-tight text-slate-950">
     {title}
   </h3>
   <div
-    class="space-y-3 text-slate-700 [&_a]:font-medium [&_a]:text-blue-700 [&_a]:underline-offset-2 hover:[&_a]:text-blue-900 hover:[&_a]:underline [&_code]:rounded [&_code]:bg-slate-100 [&_code]:px-1 [&_code]:py-0.5 [&_code]:text-sm [&_li]:pl-1 [&_small]:text-slate-500 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5"
+    class="space-y-3 leading-7 text-slate-700 [&_a]:font-medium [&_a]:text-cyan-800 [&_a]:underline-offset-2 [&_a:hover]:text-cyan-950 [&_a:hover]:underline [&_code]:rounded-md [&_code]:border [&_code]:border-slate-200 [&_code]:bg-stone-100 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-sm [&_li]:pl-1 [&_small]:text-slate-500 [&_ul]:list-disc [&_ul]:space-y-1 [&_ul]:pl-5"
   >
     <slot />
   </div>

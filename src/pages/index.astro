@@ -12,43 +12,89 @@ const description =
 ---
 
 <BaseLayout title="Dresden Systems Meetup" description={description}>
-  <main class="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8">
+  <main class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
     <header
-      class="mb-6 border-b border-slate-200 pb-4 sm:flex sm:items-end sm:justify-between sm:gap-8"
+      class="mb-6 rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-200/70 backdrop-blur sm:p-8"
     >
-      <h1 class="text-3xl font-bold tracking-tight text-slate-950">
-        Dresden Systems Meetup
-      </h1>
-      <p class="mt-3 text-sm text-slate-600 sm:mt-0 sm:max-w-xl sm:text-right">
-        Also known as <em>Mikrokernstammtisch</em> or
-        <em><abbr title="Microkernel Valley">ukvly</abbr></em> meetup from before
-        2019.
-      </p>
+      <div class="sm:flex sm:items-end sm:justify-between sm:gap-8">
+        <div>
+          <p
+            class="mb-3 font-mono text-xs uppercase tracking-[0.28em] text-cyan-800"
+          >
+            Low-Level / Systems / Research / Dresden
+          </p>
+          <h1
+            class="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl"
+          >
+            Dresden Systems Meetup
+          </h1>
+        </div>
+        <p
+          class="mt-4 text-sm leading-6 text-slate-600 sm:mt-0 sm:max-w-sm sm:text-right"
+        >
+          Also known as <em>Mikrokernstammtisch</em> or
+          <em><abbr title="Microkernel Valley">ukvly</abbr></em> meetup from before
+          2019.
+        </p>
+      </div>
     </header>
 
     <section
-      class="mb-6 rounded-xl border border-blue-200 bg-blue-50 p-6 text-blue-950 shadow-sm shadow-blue-100/70"
+      class="mb-6 overflow-hidden rounded-3xl border border-cyan-900 bg-slate-950 text-stone-50 shadow-lg shadow-slate-300/70"
       role="region"
       aria-labelledby="next-meetup-heading"
     >
-      <h2
-        id="next-meetup-heading"
-        class="text-3xl font-bold tracking-tight sm:text-4xl"
-      >
-        Next Meetup
-      </h2>
-      <p class="mt-3 text-lg font-medium">
-        📅 {nextMeetup.date} ⏰ {nextMeetup.time} 📍 {nextMeetup.location}
-      </p>
-      <p class="mt-3 text-blue-900">
-        <small>{nextMeetup.registrationNote}</small><br />
-        {nextMeetup.hostNote}
-      </p>
+      <div class="border-b border-white/10 px-6 py-4 sm:px-8">
+        <p class="font-mono text-xs uppercase tracking-[0.28em] text-amber-300">
+          Next meetup
+        </p>
+      </div>
+      <div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.1fr_1.9fr]">
+        <h2
+          id="next-meetup-heading"
+          class="text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+          Join the next systems evening.
+        </h2>
+        <div>
+          <dl class="grid gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
+              >
+                Date
+              </dt>
+              <dd class="mt-2 font-semibold">{nextMeetup.date}</dd>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
+              >
+                Time
+              </dt>
+              <dd class="mt-2 font-semibold">{nextMeetup.time}</dd>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
+              >
+                Location
+              </dt>
+              <dd class="mt-2 font-semibold">{nextMeetup.location}</dd>
+            </div>
+          </dl>
+          <p class="mt-4 leading-7 text-slate-300">
+            <small class="text-slate-400">{nextMeetup.registrationNote}</small
+            ><br />
+            {nextMeetup.hostNote}
+          </p>
+        </div>
+      </div>
     </section>
 
     <div class="grid gap-6 md:grid-cols-2">
       <div>
-        <InfoCard title="About & Topics">
+        <InfoCard label="Scope" title="About & Topics">
           <p>
             A regular meetup for all people in Dresden and the surrounding area
             working in systems context. This includes but is not limited to:
@@ -62,13 +108,14 @@ const description =
             <li>Virtualization</li>
           </ul>
           <p>
-            We usually get around 25-40 attendees. If the interest goes beyond
-            what the venue can handle, we may have to close registration.
+            We usually get around 30-45 attendees. If the interest goes beyond
+            what the venue can handle, we may have to close registration - we
+            have a waitlist for these cases.
           </p>
         </InfoCard>
       </div>
       <div>
-        <InfoCard title="Core Values">
+        <InfoCard label="Culture" title="Core Values">
           <ul>
             <li>Friendly and open-minded environment</li>
             <li>"Du"-Anrede highly encouraged</li>
@@ -86,7 +133,9 @@ const description =
               >
                 Our Code of Conduct
               </a>
-              <small>(the state from 2024-05-24 is the reference)</small>
+              <small
+                >(if in doubt: the state from 2024-05-24 is the reference)</small
+              >
             </li>
             <li>
               Everyone interested in the field is welcome. This includes
@@ -100,12 +149,12 @@ const description =
 
     <div class="mt-6 grid gap-6 md:grid-cols-2">
       <div>
-        <InfoCard title="Past Meetups">
+        <InfoCard label="Archive" title="Past Meetups">
           <PastMeetups meetups={pastMeetups} />
         </InfoCard>
       </div>
       <div>
-        <InfoCard title="Organization">
+        <InfoCard label="Hosting" title="Organization">
           <ul>
             <li>
               We have one main organizer and an event host that changes from
@@ -143,7 +192,7 @@ const description =
 
     <div class="mt-6 grid gap-6 md:grid-cols-2">
       <div>
-        <InfoCard title="Known Participants">
+        <InfoCard label="Community" title="Known Participants">
           <p>Usually we have attendees of people working at:</p>
           <ul>
             <li>Amazon (AWS)</li>
@@ -164,7 +213,10 @@ const description =
         </InfoCard>
       </div>
       <div>
-        <InfoCard title="Announcement and Discussion Channels">
+        <InfoCard
+          label="Stay in Touch"
+          title="Announcement and Discussion Channels"
+        >
           <ul>
             <li>
               <strong>Matrix </strong> Space with channels for announcements and discussions:<br
@@ -257,16 +309,16 @@ const description =
 
     <div class="mt-6 grid gap-6 md:grid-cols-2">
       <div>
-        <InfoCard title="When and Where">
+        <InfoCard label="Join us" title="When and Where">
           <p>
-            Every 2-4 months with 3-5 meetups per year, usually on a Thursday
+            Every 3-5 months with 3-5 meetups per year, usually on a weekday
             18:00 to 22:00 o'clock. The location changes. Feel free to reach out
             and host a meetup!
           </p>
         </InfoCard>
       </div>
       <div>
-        <InfoCard title="Trivia">
+        <InfoCard label="Local lore" title="Trivia">
           <p>
             Dresden has a rich ecosystem of companies and research in the field
             of operating systems and systems engineering in general. Especially,
@@ -279,10 +331,9 @@ const description =
     </div>
 
     <footer
-      class="mt-8 border-t border-slate-200 pt-4 text-sm text-slate-500 [&_a]:font-medium [&_a]:text-blue-700 hover:[&_a]:text-blue-900 hover:[&_a]:underline"
+      class="mt-8 border-t border-slate-300/80 pt-4 text-sm text-slate-500 [&_a]:font-medium [&_a]:text-cyan-800 [&_a:hover]:text-cyan-950 [&_a:hover]:underline"
     >
-      {new Date().getFullYear()}
-      - The systems community of Dresden • Website operated by
+      2026 • The systems community of Dresden • Website operated by
       <a href="https://phip1611.de" title="Philipp Schuster">Philipp Schuster</a
       >
       • Source on
