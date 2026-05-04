@@ -2,6 +2,7 @@
 /* Shared HTML shell, metadata, analytics, and global site assets. */
 
 import "../styles/bootstrap.css";
+import matomoScript from "../scripts/matomo.js?raw";
 
 interface Props {
   title: string;
@@ -34,24 +35,7 @@ const { title, description } = Astro.props;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/images/logo-wide-1600x900.png" />
     <meta name="twitter:site" content="@ukvly" />
-    <script is:inline>
-      var _paq = (window._paq = window._paq || []);
-      _paq.push(["disableCookies"]);
-      _paq.push(["enableHeartBeatTimer"]);
-      _paq.push(["trackPageView"]);
-      _paq.push(["enableLinkTracking"]);
-      (function () {
-        var u = "https://yikes.phip1611.de/";
-        _paq.push(["setTrackerUrl", u + "yikes.php"]);
-        _paq.push(["setSiteId", "12"]);
-        var d = document,
-          g = d.createElement("script"),
-          s = d.getElementsByTagName("script")[0];
-        g.async = true;
-        g.src = u + "yikes.js";
-        s.parentNode.insertBefore(g, s);
-      })();
-    </script>
+    <script is:inline set:html={matomoScript} />
   </head>
   <body>
     <slot />
