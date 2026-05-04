@@ -10,6 +10,8 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const siteUrl = "https://ukvly.org";
+const socialImageUrl = `${siteUrl}/images/logo-wide-1600x900.png`;
 ---
 
 <!doctype html>
@@ -19,21 +21,34 @@ const { title, description } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://ukvly.org" />
+    <meta
+      name="theme-color"
+      content="#fafaf9"
+      media="(prefers-color-scheme: light)"
+    />
+    <meta
+      name="theme-color"
+      content="#020617"
+      media="(prefers-color-scheme: dark)"
+    />
+    <link rel="canonical" href={siteUrl} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="manifest" href="/manifest.json" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/logo-wide-1600x900.png" />
-    <meta property="og:url" content="https://ukvly.org" />
+    <meta property="og:image" content={socialImageUrl} />
+    <meta property="og:image:alt" content="Dresden Systems Meetup logo" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content={siteUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dresden Systems Meetup" />
 
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/logo-wide-1600x900.png" />
+    <meta name="twitter:image" content={socialImageUrl} />
+    <meta name="twitter:image:alt" content="Dresden Systems Meetup logo" />
     <meta name="twitter:site" content="@ukvly" />
     <script is:inline set:html={matomoScript} />
   </head>
