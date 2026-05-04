@@ -36,7 +36,7 @@ export const pastMeetups: PastMeetup[] = [
     introHtml: `Prof. Dr. Horst Schirmeier from the chair of Operating
       Systems at TU Dresden hosted our 8th meetup in total and first &amp;
       meetup of 2026. The meetup brought together <strong>40
-      attendees</strong> from 18 affiliations to the Andread-Pfitzmann-Bau
+      attendees</strong> from 18 affiliations to the Andreas-Pfitzmann-Bau
       where we started with interesting talks and concluded the evening in an
       open setting with drinks and pizza. Special thanks to
       <a href="https://www.kernkonzept.com/" title="Kernkonzept">Kernkonzept</a>
@@ -106,7 +106,7 @@ export const pastMeetups: PastMeetup[] = [
       },
       {
         title: "Identity Crisis in Attested TLS for Confidential Computing",
-        speakerHtml: "Muhammad Usama SardarTU Dresden, TU Dresden",
+        speakerHtml: "Muhammad Usama Sardar, TU Dresden",
       },
       {
         title: "Year in Review: (Almost) Two Years of System Meetup",
