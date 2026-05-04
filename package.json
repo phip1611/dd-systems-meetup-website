@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "astro": "6.1.9"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.8"
   }
 }

@@ -75,7 +75,7 @@
             pname = "dd-systems-meetup-website";
             version = "0.0.0-snapshot";
             src = self;
-            npmDepsHash = "sha256-JYTfPeRTbjnKgEMM0sYxAHBGvX+Rm/GTs6y6knJ0104=";
+            npmDepsHash = "sha256-oFdgc9G8iw/RbzYlTvRCfFB/jK0cCwFTVkHQdh7N9jo=";
             npmBuildScript = "build";
 
             installPhase = ''
