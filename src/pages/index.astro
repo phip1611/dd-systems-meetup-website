@@ -14,23 +14,23 @@ const description =
 <BaseLayout title="Dresden Systems Meetup" description={description}>
   <main class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
     <header
-      class="mb-6 rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-200/70 backdrop-blur sm:p-8"
+      class="mb-6 rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-200/70 backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/85 dark:shadow-slate-950/40 sm:p-8"
     >
       <div class="sm:flex sm:items-end sm:justify-between sm:gap-8">
         <div>
           <p
-            class="mb-3 font-mono text-xs uppercase tracking-[0.28em] text-cyan-800"
+            class="mb-3 font-mono text-xs uppercase tracking-[0.28em] text-cyan-800 dark:text-cyan-300"
           >
             Local Low-Level Systems Community
           </p>
           <h1
-            class="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl"
+            class="max-w-3xl text-4xl font-bold tracking-tight text-slate-950 dark:text-stone-50 sm:text-5xl"
           >
             Dresden Systems Meetup
           </h1>
         </div>
         <p
-          class="mt-4 text-sm leading-6 text-slate-600 sm:mt-0 sm:max-w-sm sm:text-right"
+          class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-300 sm:mt-0 sm:max-w-sm sm:text-right"
         >
           Also known as <em>Mikrokernstammtisch</em> or
           <em><abbr title="Microkernel Valley">ukvly</abbr></em> meetup from before
@@ -40,7 +40,7 @@ const description =
     </header>
 
     <section
-      class="mb-6 overflow-hidden rounded-3xl border border-cyan-900 bg-slate-950 text-stone-50 shadow-lg shadow-slate-300/70"
+      class="mb-6 overflow-hidden rounded-3xl border border-cyan-900 bg-slate-950 text-stone-50 shadow-lg shadow-slate-300/70 dark:border-cyan-300/30 dark:bg-slate-900 dark:shadow-slate-950/50"
       role="region"
       aria-labelledby="next-meetup-heading"
     >
@@ -331,7 +331,7 @@ const description =
     </div>
 
     <footer
-      class="mt-8 border-t border-slate-300/80 pt-4 text-sm text-slate-500 [&_a]:font-medium [&_a]:text-cyan-800 [&_a:hover]:text-cyan-950 [&_a:hover]:underline"
+      class="mt-8 border-t border-slate-300/80 pt-4 text-sm text-slate-500 dark:border-slate-700 dark:text-slate-400 [&_a]:font-medium [&_a]:text-cyan-800 [&_a:hover]:text-cyan-950 [&_a:hover]:underline dark:[&_a]:text-cyan-300 dark:[&_a:hover]:text-cyan-100"
     >
       2026 • The systems community of Dresden • Website operated by
       <a href="https://phip1611.de" title="Philipp Schuster">Philipp Schuster</a
