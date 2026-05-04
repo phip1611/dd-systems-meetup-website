@@ -1,5 +1,5 @@
 ---
-/* Renders one past meetup entry inside the meetup accordion. */
+/* Renders one past meetup entry as an expandable disclosure panel. */
 
 import type { PastMeetup } from "../data/meetups";
 
@@ -9,75 +9,71 @@ interface Props {
 }
 
 const { meetup, expanded } = Astro.props;
-const collapseId = `collapse_${meetup.id}`;
-const buttonClass = expanded
-  ? "accordion-button"
-  : "accordion-button collapsed";
-const collapseClass = expanded
-  ? "accordion-collapse collapse show"
-  : "accordion-collapse collapse";
 ---
 
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button
-      class={buttonClass}
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target={`#${collapseId}`}
-      aria-expanded={expanded ? "true" : "false"}
-      aria-controls={collapseId}
-    >
-      {meetup.label}
-    </button>
-  </h2>
-  <div
-    id={collapseId}
-    class={collapseClass}
-    data-bs-parent="#pastMeetupsAccordion"
+<details
+  class="group overflow-hidden rounded-lg border border-slate-200 bg-white"
+  open={expanded}
+>
+  <summary
+    class="flex cursor-pointer list-none items-center justify-between gap-4 bg-slate-100 px-4 py-3 text-left font-medium text-slate-950 transition-colors hover:bg-slate-200 [&::-webkit-details-marker]:hidden"
   >
-    <div class="accordion-body">
-      <p set:html={meetup.introHtml} />
-      {
-        meetup.talks.length > 0 && (
-          <ol>
-            {meetup.talks.map((talk) => (
-              <li>
-                <strong set:html={talk.title} />
-                {" \u2013 "}
-                <Fragment set:html={talk.speakerHtml} />
-                {talk.link && (
-                  <>
-                    {" ("}
-                    <a href={talk.link.href} title={talk.link.title}>
-                      {talk.link.label}
-                    </a>
-                    {")"}
-                  </>
-                )}
-              </li>
-            ))}
-          </ol>
-        )
-      }
-      {meetup.outroHtml && <p set:html={meetup.outroHtml} />}
-      {
-        meetup.images?.map((image, index) => (
-          <>
-            <img
-              src={image.src}
-              alt={image.alt}
-              title={image.title}
-              class={`img-fluid ${index !== 0 ? "mt-3" : ""}`}
-            />
-            {image.credit && (
-              <div class="text-end">
-                <small>{image.credit}</small>
-              </div>
-            )}
-          </>
-        ))
-      }
-    </div>
+    <span>
+      {meetup.label}
+    </span>
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      class="size-5 shrink-0 text-slate-500 transition-transform group-open:rotate-180"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.22 7.22a.75.75 0 0 1 1.06 0L10 10.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 8.28a.75.75 0 0 1 0-1.06Z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </summary>
+  <div
+    class="space-y-3 px-4 py-4 text-sm leading-6 text-slate-700 [&_a]:font-medium [&_a]:text-blue-700 [&_a]:underline-offset-2 hover:[&_a]:text-blue-900 hover:[&_a]:underline [&_ol]:list-decimal [&_ol]:space-y-1 [&_ol]:pl-5"
+  >
+    <p set:html={meetup.introHtml} />
+    {
+      meetup.talks.length > 0 && (
+        <ol>
+          {meetup.talks.map((talk) => (
+            <li>
+              <strong set:html={talk.title} />
+              {" \u2013 "}
+              <Fragment set:html={talk.speakerHtml} />
+              {talk.link && (
+                <>
+                  {" ("}
+                  <a href={talk.link.href} title={talk.link.title}>
+                    {talk.link.label}
+                  </a>
+                  {")"}
+                </>
+              )}
+            </li>
+          ))}
+        </ol>
+      )
+    }
+    {meetup.outroHtml && <p set:html={meetup.outroHtml} />}
+    {
+      meetup.images?.map((image) => (
+        <>
+          <img
+            src={image.src}
+            alt={image.alt}
+            title={image.title}
+            class="w-full rounded-lg border border-slate-200"
+          />
+          {image.credit && (
+            <div class="text-right text-xs text-slate-500">{image.credit}</div>
+          )}
+        </>
+      ))
+    }
   </div>
-</div>
+</details>

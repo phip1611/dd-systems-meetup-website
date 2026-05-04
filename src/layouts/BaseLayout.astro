@@ -1,7 +1,7 @@
 ---
 /* Shared HTML shell, metadata, analytics, and global site assets. */
 
-import "../styles/bootstrap.css";
+import "../styles/global.css";
 import matomoScript from "../scripts/matomo.js?raw";
 
 interface Props {
@@ -39,8 +39,5 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
-    <script>
-      import "bootstrap/dist/js/bootstrap.bundle.min.js";
-    </script>
   </body>
 </html>
