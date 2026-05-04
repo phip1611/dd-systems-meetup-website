@@ -9,9 +9,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const description =
   "The regular Systems Meetup in Dresden for everyone in Low-Level space (virtualization, x86, arm, device drivers, operating systems, research, ...).";
+const nextMeetupStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Dresden Systems Meetup",
+  description,
+  startDate: nextMeetup.startDateIso,
+  endDate: nextMeetup.endDateIso,
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  eventStatus: "https://schema.org/EventScheduled",
+  url: "https://ukvly.org/",
+  location: {
+    "@type": "Place",
+    name: nextMeetup.location,
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "Dresden Systems Meetup",
+    url: "https://ukvly.org/",
+  },
+  ...(nextMeetup.registrationLink
+    ? {
+        offers: {
+          "@type": "Offer",
+          url: nextMeetup.registrationLink,
+          availability: "https://schema.org/InStock",
+        },
+      }
+    : {}),
+};
 ---
 
 <BaseLayout title="Dresden Systems Meetup" description={description}>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(nextMeetupStructuredData)}
+  />
   <main class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
     <header
       class="mb-6 rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-200/70 backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/85 dark:shadow-slate-950/40 sm:p-8"
