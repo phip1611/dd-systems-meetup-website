@@ -12,38 +12,96 @@ const description =
 ---
 
 <BaseLayout title="Dresden Systems Meetup" description={description}>
-  <div class="container py-4">
-    <div class="row">
-      <header class="pb-3 mb-4 border-bottom">
-        <h1 class="fs-3 fw-bold">Dresden Systems Meetup</h1>
-        <div class="text-end">
-          <span>
-            Also known as <em>Mikrokernstammtisch</em> or
-            <em><abbr title="Microkernel Valley">ukvly</abbr></em> meetup from before
-            2019.
-          </span>
+  <main class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+    <header
+      class="mb-6 rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-200/70 backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/85 dark:shadow-slate-950/40 sm:p-8"
+    >
+      <div class="sm:flex sm:items-end sm:justify-between sm:gap-8">
+        <div>
+          <h1
+            class="max-w-3xl text-4xl font-bold text-cyan-800 dark:text-stone-50 sm:text-5xl"
+          >
+            Dresden Systems Meetup
+          </h1>
         </div>
-      </header>
-    </div>
+        <p
+          class="mt-4 text-sm leading-6 text-slate-600 dark:text-slate-300 sm:mt-0 sm:max-w-sm sm:text-right"
+        >
+          Also known as <em>Mikrokernstammtisch</em> or
+          <em><abbr title="Microkernel Valley">ukvly</abbr></em> meetup from before
+          2019.
+        </p>
+      </div>
+    </header>
 
-    <div class="row">
-      <div class="col">
-        <div class="alert alert-primary" role="alert">
-          <h2 class="display-6 fw-bold">Next Meetup</h2>
-          <p class="fs-5 mb-0">
-            📅 {nextMeetup.date} ⏰ {nextMeetup.time} 📍 {nextMeetup.location}
-          </p>
-          <p>
-            <small>{nextMeetup.registrationNote}</small><br />
-            {nextMeetup.hostNote}
-          </p>
+    <section
+      class="mb-6 overflow-hidden rounded-3xl border border-cyan-900 bg-slate-950 text-stone-50 shadow-lg shadow-slate-300/70 dark:border-cyan-300/30 dark:bg-slate-900 dark:shadow-slate-950/50"
+      role="region"
+      aria-labelledby="next-meetup-heading"
+    >
+      <div class="border-b border-white/10 px-6 py-4 sm:px-8">
+        <p class="font-mono text-xs uppercase tracking-[0.28em] text-amber-300">
+          Next meetup
+        </p>
+      </div>
+      <div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.1fr_1.9fr]">
+        <h2
+          id="next-meetup-heading"
+          class="text-3xl font-bold tracking-tight sm:text-4xl"
+        >
+          Join the next systems evening.
+        </h2>
+        <div>
+          <dl class="grid gap-3 sm:grid-cols-3">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
+              >
+                Date
+              </dt>
+              <dd class="mt-2 font-semibold">{nextMeetup.date}</dd>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
+              >
+                Time
+              </dt>
+              <dd class="mt-2 font-semibold">{nextMeetup.time}</dd>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+              <dt
+                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
+              >
+                Location
+              </dt>
+              <dd class="mt-2 font-semibold">{nextMeetup.location}</dd>
+            </div>
+          </dl>
+          <div
+            class="mt-4 space-y-3 leading-7 text-slate-300 [&_a]:inline-flex [&_a]:rounded-full [&_a]:bg-amber-300 [&_a]:px-4 [&_a]:py-2 [&_a]:font-semibold [&_a]:text-slate-950 [&_a]:shadow-sm [&_a]:shadow-slate-950/20 [&_a]:transition-colors [&_a:hover]:bg-amber-200"
+          >
+            {
+              nextMeetup.registrationLink ? (
+                <a
+                  href={nextMeetup.registrationLink}
+                  title="Register now for the next meetup"
+                >
+                  Register now
+                </a>
+              ) : (
+                <p class="text-slate-400">Registration not open yet.</p>
+              )
+            }
+            <p>{nextMeetup.hostNote}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
 
-    <div class="row mb-4 align-items-md-stretch">
-      <div class="col-md-6">
-        <InfoCard title="About & Topics">
+    <div class="grid gap-6 md:grid-cols-2">
+      <div>
+        <InfoCard label="Scope" title="About & Topics">
           <p>
             A regular meetup for all people in Dresden and the surrounding area
             working in systems context. This includes but is not limited to:
@@ -57,13 +115,14 @@ const description =
             <li>Virtualization</li>
           </ul>
           <p>
-            We usually get around 25-40 attendees. If the interest goes beyond
-            what the venue can handle, we may have to close registration.
+            We usually get around 30-45 attendees. If the interest goes beyond
+            what the venue can handle, we may have to close registration - we
+            have a waitlist for these cases.
           </p>
         </InfoCard>
       </div>
-      <div class="col-md-6">
-        <InfoCard title="Core Values">
+      <div>
+        <InfoCard label="Culture" title="Core Values">
           <ul>
             <li>Friendly and open-minded environment</li>
             <li>"Du"-Anrede highly encouraged</li>
@@ -81,7 +140,9 @@ const description =
               >
                 Our Code of Conduct
               </a>
-              <small>(the state from 2024-05-24 is the reference)</small>
+              <small
+                >(if in doubt: the state from 2024-05-24 is the reference)</small
+              >
             </li>
             <li>
               Everyone interested in the field is welcome. This includes
@@ -93,14 +154,14 @@ const description =
       </div>
     </div>
 
-    <div class="row mb-4 align-items-md-stretch">
-      <div class="col-md-6">
-        <InfoCard title="Past Meetups">
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      <div>
+        <InfoCard label="Archive" title="Past Meetups">
           <PastMeetups meetups={pastMeetups} />
         </InfoCard>
       </div>
-      <div class="col-md-6">
-        <InfoCard title="Organization">
+      <div>
+        <InfoCard label="Hosting" title="Organization">
           <ul>
             <li>
               We have one main organizer and an event host that changes from
@@ -136,9 +197,9 @@ const description =
       </div>
     </div>
 
-    <div class="row mb-4 align-items-md-stretch">
-      <div class="col-md-6">
-        <InfoCard title="Known Participants">
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      <div>
+        <InfoCard label="Community" title="Known Participants">
           <p>Usually we have attendees of people working at:</p>
           <ul>
             <li>Amazon (AWS)</li>
@@ -158,8 +219,11 @@ const description =
           </ul>
         </InfoCard>
       </div>
-      <div class="col-md-6">
-        <InfoCard title="Announcement and Discussion Channels">
+      <div>
+        <InfoCard
+          label="Stay in Touch"
+          title="Announcement and Discussion Channels"
+        >
           <ul>
             <li>
               <strong>Matrix </strong> Space with channels for announcements and discussions:<br
@@ -228,7 +292,7 @@ const description =
               </a>
             </li>
             <li>
-              <span style="text-decoration: line-through">X</span>
+              <span class="line-through">X</span>
               <strong>Twitter</strong>:
               <a
                 href="https://twitter.com/ukvly"
@@ -250,18 +314,18 @@ const description =
       </div>
     </div>
 
-    <div class="row mb-4 align-items-md-stretch">
-      <div class="col-md-6">
-        <InfoCard title="When and Where">
+    <div class="mt-6 grid gap-6 md:grid-cols-2">
+      <div>
+        <InfoCard label="Join us" title="When and Where">
           <p>
-            Every 2-4 months with 3-5 meetups per year, usually on a Thursday
+            Every 3-5 months with 3-5 meetups per year, usually on a weekday
             18:00 to 22:00 o'clock. The location changes. Feel free to reach out
             and host a meetup!
           </p>
         </InfoCard>
       </div>
-      <div class="col-md-6">
-        <InfoCard title="Trivia">
+      <div>
+        <InfoCard label="Local lore" title="Trivia">
           <p>
             Dresden has a rich ecosystem of companies and research in the field
             of operating systems and systems engineering in general. Especially,
@@ -273,21 +337,19 @@ const description =
       </div>
     </div>
 
-    <div class="row">
-      <footer class="pt-3 mt-4 text-muted border-top">
-        {new Date().getFullYear()}
-        - The systems community of Dresden • Website operated by
-        <a href="https://phip1611.de" title="Philipp Schuster"
-          >Philipp Schuster</a
-        >
-        • Source on
-        <a
-          href="https://github.com/phip1611/dd-systems-meetup-website"
-          title="GitHub"
-        >
-          GitHub
-        </a>
-      </footer>
-    </div>
-  </div>
+    <footer
+      class="mt-8 border-t border-slate-300/80 pt-4 text-sm text-slate-500 dark:border-slate-700 dark:text-slate-400 [&_a]:font-medium [&_a]:text-cyan-800 [&_a:hover]:text-cyan-950 [&_a:hover]:underline dark:[&_a]:text-cyan-300 dark:[&_a:hover]:text-cyan-100"
+    >
+      2026 • The systems community of Dresden • Website operated by
+      <a href="https://phip1611.de" title="Philipp Schuster">Philipp Schuster</a
+      >
+      • Source on
+      <a
+        href="https://github.com/phip1611/dd-systems-meetup-website"
+        title="GitHub"
+      >
+        GitHub
+      </a>
+    </footer>
+  </main>
 </BaseLayout>

@@ -1,5 +1,5 @@
 ---
-/* Renders all past meetups as a Bootstrap accordion. */
+/* Renders all past meetups as expandable disclosure panels. */
 
 import MeetupAccordionItem from "./MeetupAccordionItem.astro";
 import type { PastMeetup } from "../data/meetups";
@@ -11,7 +11,7 @@ interface Props {
 const { meetups } = Astro.props;
 ---
 
-<div class="accordion mt-3" id="pastMeetupsAccordion">
+<div class="mt-3 space-y-3">
   <!-- The first item is expanded by default -->
   {
     meetups.map((meetup, index) => (

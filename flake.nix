@@ -68,14 +68,13 @@
       packages = forAllSystems (
         system: pkgs:
         let
-          npmDepsHash = "sha256-m5iiO5IPb4kEL1uyjv5ACZXSXC6gPAMQrtCxwgOm8kU=";
+          npmDepsHash = "sha256-gujo9N2j2KRLNzYMB5MKBOIc3hWh4EUGLJLdjiAJvmY=";
           website = pkgs.buildNpmPackage {
+            inherit npmDepsHash;
             pname = "dd-systems-meetup-website";
             version = "0.0.0-snapshot";
             src = self;
-            inherit npmDepsHash;
             npmBuildScript = "build";
-
             installPhase = ''
               runHook preInstall
               mkdir -p $out
