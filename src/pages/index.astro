@@ -78,11 +78,23 @@ const description =
               <dd class="mt-2 font-semibold">{nextMeetup.location}</dd>
             </div>
           </dl>
-          <p class="mt-4 leading-7 text-slate-300">
-            <small class="text-slate-400">{nextMeetup.registrationNote}</small
-            ><br />
-            {nextMeetup.hostNote}
-          </p>
+          <div
+            class="mt-4 space-y-3 leading-7 text-slate-300 [&_a]:inline-flex [&_a]:rounded-full [&_a]:bg-amber-300 [&_a]:px-4 [&_a]:py-2 [&_a]:font-semibold [&_a]:text-slate-950 [&_a]:shadow-sm [&_a]:shadow-slate-950/20 [&_a]:transition-colors [&_a:hover]:bg-amber-200"
+          >
+            {
+              nextMeetup.registrationLink ? (
+                <a
+                  href={nextMeetup.registrationLink}
+                  title="Register now for the next meetup"
+                >
+                  Register now
+                </a>
+              ) : (
+                <p class="text-slate-400">Registration not open yet.</p>
+              )
+            }
+            <p>{nextMeetup.hostNote}</p>
+          </div>
         </div>
       </div>
     </section>
