@@ -24,17 +24,20 @@
     in
     {
       checks = forAllSystems (
-        system: pkgs: {
-          fmt =
-            pkgs.runCommandLocal "check-site-fmt"
-              {
-                src = self;
-                nativeBuildInputs = [ pkgs.prettier ];
-              }
-              ''
-                prettier --check .
-                touch $out
-              '';
+        system: pkgs:
+        let
+          websiteNpmPackage = self.packages.${system}.website;
+        in
+        {
+          fmt = websiteNpmPackage.overrideAttrs {
+            dontNpmBuild = true;
+            installPhase = ''
+              runHook preInstall
+              npm run format:check
+              touch $out
+              runHook postInstall
+            '';
+          };
           typos =
             pkgs.runCommandLocal "run-typos"
               {
@@ -55,8 +58,7 @@
             packages = with pkgs; [
               fd
               libwebp
-              # Astro-aware formatting is added by the formatter tooling step.
-              prettier
+              nodejs # comes with npm
               typos
             ];
           };
