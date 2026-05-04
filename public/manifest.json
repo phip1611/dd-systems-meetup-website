@@ -1,20 +1,33 @@
 {
   "name": "Systems Meetup Dresden",
   "short_name": "Systems Meetup DD",
-  "start_url": ".",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#fff",
+  "background_color": "#fafaf9",
+  "theme_color": "#0e7490",
   "description": "Systems Meetup Dresden",
   "icons": [
     {
-      "src": "images/logo-128x128.png",
+      "src": "/images/logo-128x128.png",
       "sizes": "128x128",
       "type": "image/png"
     },
     {
-      "src": "images/logo-128x128.webp",
+      "src": "/images/logo-128x128.webp",
       "sizes": "128x128",
       "type": "image/webp"
+    },
+    {
+      "src": "/images/logo-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/logo-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ]
 }
