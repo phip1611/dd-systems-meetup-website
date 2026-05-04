@@ -26,13 +26,18 @@
       checks = forAllSystems (
         system: pkgs: {
           fmt =
-            pkgs.runCommandLocal "check-html-fmt"
+            pkgs.runCommandLocal "check-site-fmt"
               {
                 src = self;
                 nativeBuildInputs = [ pkgs.prettier ];
               }
               ''
-                prettier --check ${self}/public/index.html
+                prettier --check \
+                  ${self}/README.md \
+                  ${self}/astro.config.mjs \
+                  ${self}/package.json \
+                  ${self}/public/manifest.json \
+                  ${self}/tsconfig.json
                 touch $out
               '';
           typos =
@@ -50,31 +55,36 @@
 
       devShells = forAllSystems (
         system: pkgs: {
-          default =
-            let
-              serve = pkgs.callPackage ./nix/serve.nix { };
-            in
-            pkgs.mkShell {
-              inputsFrom = builtins.attrValues self.packages.${system};
-              packages = with pkgs; [
-                fd
-                libwebp
-                # format: `$ prettier -w public/index.html`
-                prettier
-                serve
-                typos
-              ];
-            };
+          default = pkgs.mkShell {
+            inputsFrom = builtins.attrValues self.packages.${system};
+            packages = with pkgs; [
+              fd
+              libwebp
+              # Astro-aware formatting is added by the formatter tooling step.
+              prettier
+              typos
+            ];
+          };
         }
       );
 
       packages = forAllSystems (
         system: pkgs:
         let
-          website = pkgs.runCommand "website" { } ''
-            mkdir $out
-            cp -r ${./public}/. $out
-          '';
+          website = pkgs.buildNpmPackage {
+            pname = "dd-systems-meetup-website";
+            version = "0.0.0-snapshot";
+            src = self;
+            npmDepsHash = "sha256-JYTfPeRTbjnKgEMM0sYxAHBGvX+Rm/GTs6y6knJ0104=";
+            npmBuildScript = "build";
+
+            installPhase = ''
+              runHook preInstall
+              mkdir -p $out
+              cp -r dist/. $out/
+              runHook postInstall
+            '';
+          };
         in
         {
           inherit website;
