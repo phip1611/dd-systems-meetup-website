@@ -1,6 +1,5 @@
-# Nix
-.direnv
-result*
-node_modules
-dist
 .astro
+.direnv
+dist
+node_modules
+result*

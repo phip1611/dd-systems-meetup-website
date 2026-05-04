@@ -6,6 +6,7 @@ export default defineConfig({
   vite: {
     server: {
       watch: {
+        // Prevent weird interactions with Nix
         ignored: [".direnv/**", "**/result*/**"],
       },
     },
