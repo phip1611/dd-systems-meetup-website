@@ -2,7 +2,7 @@
   description = "DD Systems Meetup Website";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
   outputs =
@@ -18,53 +18,58 @@
       # Generates the typical per-system flake attributes.
       forAllSystems =
         function:
-        inputs.nixpkgs.lib.genAttrs systems (system: function inputs.nixpkgs.legacyPackages.${system});
+        inputs.nixpkgs.lib.genAttrs systems (
+          system: function system inputs.nixpkgs.legacyPackages.${system}
+        );
     in
     {
-      checks = forAllSystems (pkgs: {
-        fmt =
-          pkgs.runCommandLocal "check-html-fmt"
-            {
-              src = self;
-              nativeBuildInputs = [ pkgs.nodePackages.prettier ];
-            }
-            ''
-              prettier --check ${self}/public/index.html
-              touch $out
-            '';
-        typos =
-          pkgs.runCommandLocal "run-typos"
-            {
-              src = self;
-              nativeBuildInputs = [ pkgs.typos ];
-            }
-            ''
-              typos ${self}
-              touch $out
-            '';
-      });
+      checks = forAllSystems (
+        system: pkgs: {
+          fmt =
+            pkgs.runCommandLocal "check-html-fmt"
+              {
+                src = self;
+                nativeBuildInputs = [ pkgs.prettier ];
+              }
+              ''
+                prettier --check ${self}/public/index.html
+                touch $out
+              '';
+          typos =
+            pkgs.runCommandLocal "run-typos"
+              {
+                src = self;
+                nativeBuildInputs = [ pkgs.typos ];
+              }
+              ''
+                typos ${self}
+                touch $out
+              '';
+        }
+      );
 
-      devShells = forAllSystems (pkgs: {
-        default =
-          let
-            serve = pkgs.callPackage ./nix/serve.nix { };
-          in
-          pkgs.mkShell {
-            inputsFrom = builtins.attrValues self.packages.${pkgs.system};
-            packages = with pkgs; [
-              fd
-              libwebp
-              nixfmt-rfc-style
-              # format: `$ prettier -w public/index.html`
-              nodePackages.prettier
-              serve
-              typos
-            ];
-          };
-      });
+      devShells = forAllSystems (
+        system: pkgs: {
+          default =
+            let
+              serve = pkgs.callPackage ./nix/serve.nix { };
+            in
+            pkgs.mkShell {
+              inputsFrom = builtins.attrValues self.packages.${system};
+              packages = with pkgs; [
+                fd
+                libwebp
+                # format: `$ prettier -w public/index.html`
+                prettier
+                serve
+                typos
+              ];
+            };
+        }
+      );
 
       packages = forAllSystems (
-        pkgs:
+        system: pkgs:
         let
           website = pkgs.runCommand "website" { } ''
             mkdir $out
@@ -77,6 +82,6 @@
         }
       );
 
-      formatter = forAllSystems (pkgs: pkgs.nixfmt-tree);
+      formatter = forAllSystems (_system: pkgs: pkgs.nixfmt-tree);
     };
 }
