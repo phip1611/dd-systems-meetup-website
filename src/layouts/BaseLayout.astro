@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="/bootstrap.min.css"
+      integrity="sha256-2FMn2Zx6PuH5tdBQDRNwrOo60ts5wWPC9R8jK67b3t4="
+    />
+    <link rel="canonical" href="https://ukvly.org" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/images/logo-wide-1600x900.png" />
+    <meta property="og:url" content="https://ukvly.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Dresden Systems Meetup" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/images/logo-wide-1600x900.png" />
+    <meta name="twitter:site" content="@ukvly" />
+    <script
+      defer
+      src="/bootstrap.bundle.min.js"
+      integrity="sha256-5P1JGBOIxI7FBAvT/mb1fCnI5n/NhQKzNUuW7Hq0fMc="
+    ></script>
+    <script is:inline>
+      var _paq = (window._paq = window._paq || []);
+      _paq.push(["disableCookies"]);
+      _paq.push(["enableHeartBeatTimer"]);
+      _paq.push(["trackPageView"]);
+      _paq.push(["enableLinkTracking"]);
+      (function () {
+        var u = "https://yikes.phip1611.de/";
+        _paq.push(["setTrackerUrl", u + "yikes.php"]);
+        _paq.push(["setSiteId", "12"]);
+        var d = document,
+          g = d.createElement("script"),
+          s = d.getElementsByTagName("script")[0];
+        g.async = true;
+        g.src = u + "yikes.js";
+        s.parentNode.insertBefore(g, s);
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

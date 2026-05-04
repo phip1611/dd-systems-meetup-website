@@ -1,0 +1,81 @@
+---
+import type { PastMeetup } from "../data/meetups";
+
+interface Props {
+  meetup: PastMeetup;
+  expanded: boolean;
+}
+
+const { meetup, expanded } = Astro.props;
+const collapseId = `collapse_${meetup.id}`;
+const buttonClass = expanded
+  ? "accordion-button"
+  : "accordion-button collapsed";
+const collapseClass = expanded
+  ? "accordion-collapse collapse show"
+  : "accordion-collapse collapse";
+---
+
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button
+      class={buttonClass}
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target={`#${collapseId}`}
+      aria-expanded={expanded ? "true" : "false"}
+      aria-controls={collapseId}
+    >
+      {meetup.label}
+    </button>
+  </h2>
+  <div
+    id={collapseId}
+    class={collapseClass}
+    data-bs-parent="#pastMeetupsAccordion"
+  >
+    <div class="accordion-body">
+      <p set:html={meetup.introHtml} />
+      {
+        meetup.talks.length > 0 && (
+          <ol>
+            {meetup.talks.map((talk) => (
+              <li>
+                <strong set:html={talk.title} />
+                {" \u2013 "}
+                <Fragment set:html={talk.speakerHtml} />
+                {talk.link && (
+                  <>
+                    {" ("}
+                    <a href={talk.link.href} title={talk.link.title}>
+                      {talk.link.label}
+                    </a>
+                    {")"}
+                  </>
+                )}
+              </li>
+            ))}
+          </ol>
+        )
+      }
+      {meetup.outroHtml && <p set:html={meetup.outroHtml} />}
+      {
+        meetup.images?.map((image, index) => (
+          <>
+            <img
+              src={image.src}
+              alt={image.alt}
+              title={image.title}
+              class={`img-fluid ${index !== 0 ? "mt-3" : ""}`}
+            />
+            {image.credit && (
+              <div class="text-end">
+                <small>{image.credit}</small>
+              </div>
+            )}
+          </>
+        ))
+      }
+    </div>
+  </div>
+</div>

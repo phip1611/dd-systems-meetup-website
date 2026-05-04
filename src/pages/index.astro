@@ -1,0 +1,289 @@
+---
+import InfoCard from "../components/InfoCard.astro";
+import PastMeetups from "../components/PastMeetups.astro";
+import { pastMeetups } from "../data/meetups";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const description =
+  "The regular Systems Meetup in Dresden for everyone in Low-Level space (virtualization, x86, arm, device drivers, operating systems, research, ...).";
+---
+
+<BaseLayout title="Dresden Systems Meetup" description={description}>
+  <div class="container py-4">
+    <div class="row">
+      <header class="pb-3 mb-4 border-bottom">
+        <h1 class="fs-3 fw-bold">Dresden Systems Meetup</h1>
+        <div class="text-end">
+          <span>
+            Also known as <em>Mikrokernstammtisch</em> or
+            <em><abbr title="Microkernel Valley">ukvly</abbr></em> meetup from before
+            2019.
+          </span>
+        </div>
+      </header>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <div class="alert alert-primary" role="alert">
+          <h2 class="display-6 fw-bold">Next Meetup</h2>
+          <p class="fs-5 mb-0">
+            📅 Thu., May 21st, 2026 ⏰ 18:00 - 22:00 📍 Genode Labs
+          </p>
+          <p>
+            <small>Registration opens end of April.</small><br />Open for more
+            2026 hosts - please reach out!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-4 align-items-md-stretch">
+      <div class="col-md-6">
+        <InfoCard title="About & Topics">
+          <p>
+            A regular meetup for all people in Dresden and the surrounding area
+            working in systems context. This includes but is not limited to:
+          </p>
+          <ul>
+            <li>ARM, RISC-V, x86</li>
+            <li>Academia and Research</li>
+            <li>Device Drivers</li>
+            <li>Firmware</li>
+            <li>Operating Systems</li>
+            <li>Virtualization</li>
+          </ul>
+          <p>
+            We usually get around 25-40 attendees. If the interest goes beyond
+            what the venue can handle, we may have to close registration.
+          </p>
+        </InfoCard>
+      </div>
+      <div class="col-md-6">
+        <InfoCard title="Core Values">
+          <ul>
+            <li>Friendly and open-minded environment</li>
+            <li>"Du"-Anrede highly encouraged</li>
+            <li>
+              We always switch to English, if non-native speakers prefer so
+            </li>
+            <li>
+              Keep it simple. No big processes. Meet, talk, and
+              <strong>have fun</strong>!
+            </li>
+            <li>
+              <a
+                href="https://berlincodeofconduct.org"
+                title="Our code of conduct"
+              >
+                Our Code of Conduct
+              </a>
+              <small>(the state from 2024-05-24 is the reference)</small>
+            </li>
+            <li>
+              Everyone interested in the field is welcome. This includes
+              students and people with little knowledge and experience so far.
+            </li>
+            <li>Event for people, not for companies</li>
+          </ul>
+        </InfoCard>
+      </div>
+    </div>
+
+    <div class="row mb-4 align-items-md-stretch">
+      <div class="col-md-6">
+        <InfoCard title="Past Meetups">
+          <PastMeetups meetups={pastMeetups} />
+        </InfoCard>
+      </div>
+      <div class="col-md-6">
+        <InfoCard title="Organization">
+          <ul>
+            <li>
+              We have one main organizer and an event host that changes from
+              event to event. Currently, Philipp Schuster takes care of the
+              general coordination, whereas the changing event host provides a
+              room and prepares a setup to give presentations etc.
+            </li>
+            <li>
+              Just message Philipp or talk to him at a meetup, to host an event!
+            </li>
+            <li>
+              Lightning talks,tech talks, and demos are highly appreciated. The
+              ability to give talks however depends on the location. We inform
+              you in the announcements and ask for talks / inform for
+              limitations.
+            </li>
+            <li>
+              Each meeting starts with 30-60 minutes of talks / demos, followed
+              by an open evening.
+            </li>
+            <li>
+              Paid drinks and food are not guaranteed but likely! We will update
+              the next meetup info accordingly. Typically, we have pizza 🍕 and
+              drinks 🍻. In case you have a location and want to host, but have
+              no funding, we have companies in our community who might be happy
+              to sponsor your event. Feel free to reach out!
+              <small
+                >Hint: Pizza and drinks for 30 people cost ~300-400 Euro.</small
+              >
+            </li>
+          </ul>
+        </InfoCard>
+      </div>
+    </div>
+
+    <div class="row mb-4 align-items-md-stretch">
+      <div class="col-md-6">
+        <InfoCard title="Known Participants">
+          <p>Usually we have attendees of people working at:</p>
+          <ul>
+            <li>Amazon (AWS)</li>
+            <li>Barkhausen Institut (BI)</li>
+            <li>Cyberus Technology</li>
+            <li>Genode Labs</li>
+            <li>Kernkonzept</li>
+            <li>Huawei</li>
+            <li>
+              TU Dresden
+              <small>
+                (especially the Operating Systems Chair of Prof. Horst
+                Schirmeier)
+              </small>
+            </li>
+            <li>and many more ...</li>
+          </ul>
+        </InfoCard>
+      </div>
+      <div class="col-md-6">
+        <InfoCard title="Announcement and Discussion Channels">
+          <ul>
+            <li>
+              <strong>Matrix </strong> Space with channels for announcements and discussions:<br
+              />
+              <a
+                title="Matrix space with all channels"
+                href="https://matrix.to/#/#dd-systems-meetup:cyberus-technology.de"
+              >
+                <code>#dd-systems-meetup:cyberus-technology.de</code>
+              </a>
+              <br /><small
+                >Use this if your Matrix client supports spaces! Otherwise:</small
+              >
+              <ul>
+                <li>
+                  <small>
+                    <a
+                      title="Matrix announcements channel"
+                      href="https://matrix.to/#/#dd-systems-meetup-announcements:cyberus-technology.de"
+                    >
+                      Announcements channel only
+                    </a>
+                  </small>
+                </li>
+                <li>
+                  <small>
+                    <a
+                      title="Matrix discussion channel"
+                      href="https://matrix.to/#/#dd-systems-meetup-discussions:cyberus-technology.de"
+                    >
+                      Discussion channel only
+                    </a>
+                  </small>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <strong>Email List</strong>
+              <br />
+              <small>
+                We have a mailing list at
+                <code>sysmeetup@os.inf.tu-dresden.de</code>
+                maintained by TU Dresden, with a few selected trusted moderators from
+                the community. You can subscribe using the
+                <a
+                  href="https://os.inf.tu-dresden.de/mailman3/postorius/lists/sysmeetup.os.inf.tu-dresden.de"
+                  title="Mailing List Sign-Up"
+                >
+                  online form
+                </a>
+                . Usually 2-4 emails per quarter.
+                <br />
+                Due to spammers auto-subscribing (really...), please <b>also</b>
+                send a short mail from the account you are subscribing with to the
+                list admins reachable at the address shown on the online form. Some
+                nice words are appreciated :)
+              </small>
+            </li>
+            <li>
+              <strong>Mastodon</strong>:
+              <a
+                href="https://mastodon.social/@dd_systems_meetup"
+                title="Announcements on Mastodon"
+              >
+                <code>@dd_systems_meetup@mastodon.social</code>
+              </a>
+            </li>
+            <li>
+              <span style="text-decoration: line-through">X</span>
+              <strong>Twitter</strong>:
+              <a
+                href="https://twitter.com/ukvly"
+                title="Announcements on Twitter / X"
+              >
+                <code>@ukvly</code>
+              </a>
+            </li>
+            <li>This website</li>
+          </ul>
+          <p>
+            <small>
+              For discussions, I'm kindly asking you to use the provided Matrix
+              channel rather than email, if possible. I'm nevertheless happy to
+              respond to emails as well.
+            </small>
+          </p>
+        </InfoCard>
+      </div>
+    </div>
+
+    <div class="row mb-4 align-items-md-stretch">
+      <div class="col-md-6">
+        <InfoCard title="When and Where">
+          <p>
+            Every 2-4 months with 3-5 meetups per year, usually on a Thursday
+            18:00 to 22:00 o'clock. The location changes. Feel free to reach out
+            and host a meetup!
+          </p>
+        </InfoCard>
+      </div>
+      <div class="col-md-6">
+        <InfoCard title="Trivia">
+          <p>
+            Dresden has a rich ecosystem of companies and research in the field
+            of operating systems and systems engineering in general. Especially,
+            between ~2000 and ~2017, there was a "golden era" of microkernels,
+            both in academia and various local companies. That's where the term
+            <em>ukvly</em> (microkernel valley) originates from.
+          </p>
+        </InfoCard>
+      </div>
+    </div>
+
+    <div class="row">
+      <footer class="pt-3 mt-4 text-muted border-top">
+        2025 - The systems community of Dresden • Website operated by
+        <a href="https://phip1611.de" title="Philipp Schuster"
+          >Philipp Schuster</a
+        >
+        • Source on
+        <a
+          href="https://github.com/phip1611/dd-systems-meetup-website"
+          title="GitHub"
+        >
+          GitHub
+        </a>
+      </footer>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+import MeetupAccordionItem from "./MeetupAccordionItem.astro";
+import type { PastMeetup } from "../data/meetups";
+
+interface Props {
+  meetups: PastMeetup[];
+}
+
+const { meetups } = Astro.props;
+---
+
+<div class="accordion mt-3" id="pastMeetupsAccordion">
+  <!-- The first item is expanded by default -->
+  {
+    meetups.map((meetup, index) => (
+      <MeetupAccordionItem meetup={meetup} expanded={index === 0} />
+    ))
+  }
+</div>
