@@ -1,3 +1,5 @@
+/* Structured data for the upcoming meetup announcement. */
+
 export interface NextMeetup {
   date: string;
   time: string;

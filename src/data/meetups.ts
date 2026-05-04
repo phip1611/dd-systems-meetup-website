@@ -1,3 +1,5 @@
+/* Structured archive data for all past meetup recaps. */
+
 export interface MeetupLink {
   href: string;
   label: string;

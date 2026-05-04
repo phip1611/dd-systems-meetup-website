@@ -14,7 +14,7 @@ and reachable under <https://ukvly.org>.
 ## Format Code
 
 - run `$ npm install` once to get `prettier`
-- check formatting with:  `$ npm run format:check`
+- check formatting with: `$ npm run format:check`
 - change formatting with: `$ npm run format`
 - in a Nix shell: simply run `$ prettier --check .` or with `-w`
 
