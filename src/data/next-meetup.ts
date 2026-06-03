@@ -10,7 +10,8 @@ export interface NextMeetup {
   hostNote: string;
 }
 
-export const nextMeetup: NextMeetup = {
+export const nextMeetup: NextMeetup | null = null;
+/* export const nextMeetup: NextMeetup | null = {
   date: "Thu., May 21st, 2026",
   time: "18:00 - 22:00",
   startDateIso: "2026-05-21T18:00:00+02:00",
@@ -18,4 +19,4 @@ export const nextMeetup: NextMeetup = {
   location: "Genode Labs",
   registrationLink: "https://signup.ukvly.org/2026-genode-labs/",
   hostNote: "Open for more 2026 hosts - please reach out!",
-};
+}; */

@@ -9,42 +9,48 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const description =
   "The regular Systems Meetup in Dresden for everyone in Low-Level space (virtualization, x86, arm, device drivers, operating systems, research, ...).";
-const nextMeetupStructuredData = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: "Dresden Systems Meetup",
-  description,
-  startDate: nextMeetup.startDateIso,
-  endDate: nextMeetup.endDateIso,
-  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
-  eventStatus: "https://schema.org/EventScheduled",
-  url: "https://ukvly.org/",
-  location: {
-    "@type": "Place",
-    name: nextMeetup.location,
-  },
-  organizer: {
-    "@type": "Organization",
-    name: "Dresden Systems Meetup",
-    url: "https://ukvly.org/",
-  },
-  ...(nextMeetup.registrationLink
-    ? {
-        offers: {
-          "@type": "Offer",
-          url: nextMeetup.registrationLink,
-          availability: "https://schema.org/InStock",
-        },
-      }
-    : {}),
-};
+const nextMeetupStructuredData = nextMeetup
+  ? {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      name: "Dresden Systems Meetup",
+      description,
+      startDate: nextMeetup.startDateIso,
+      endDate: nextMeetup.endDateIso,
+      eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+      eventStatus: "https://schema.org/EventScheduled",
+      url: "https://ukvly.org/",
+      location: {
+        "@type": "Place",
+        name: nextMeetup.location,
+      },
+      organizer: {
+        "@type": "Organization",
+        name: "Dresden Systems Meetup",
+        url: "https://ukvly.org/",
+      },
+      ...(nextMeetup.registrationLink
+        ? {
+            offers: {
+              "@type": "Offer",
+              url: nextMeetup.registrationLink,
+              availability: "https://schema.org/InStock",
+            },
+          }
+        : {}),
+    }
+  : null;
 ---
 
 <BaseLayout title="Dresden Systems Meetup" description={description}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify(nextMeetupStructuredData)}
-  />
+  {
+    nextMeetupStructuredData && (
+      <script
+        type="application/ld+json"
+        set:html={JSON.stringify(nextMeetupStructuredData)}
+      />
+    )
+  }
   <main class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
     <header
       class="mb-6 rounded-3xl border border-slate-200/80 bg-white/85 p-6 shadow-sm shadow-slate-200/70 backdrop-blur dark:border-slate-700/80 dark:bg-slate-900/85 dark:shadow-slate-950/40 sm:p-8"
@@ -77,59 +83,62 @@ const nextMeetupStructuredData = {
           Next meetup
         </p>
       </div>
-      <div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.1fr_1.9fr]">
-        <h2
-          id="next-meetup-heading"
-          class="text-3xl font-bold tracking-tight sm:text-4xl"
-        >
-          Join the next systems evening.
-        </h2>
-        <div>
-          <dl class="grid gap-3 sm:grid-cols-3">
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <dt
-                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
-              >
-                Date
-              </dt>
-              <dd class="mt-2 font-semibold">{nextMeetup.date}</dd>
+      {
+        nextMeetup ? (
+          <div class="grid gap-6 p-6 sm:p-8 lg:grid-cols-[1.1fr_1.9fr]">
+            <h2
+              id="next-meetup-heading"
+              class="text-3xl font-bold tracking-tight sm:text-4xl"
+            >
+              Join the next systems evening.
+            </h2>
+            <div>
+              <dl class="grid gap-3 sm:grid-cols-3">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
+                    Date
+                  </dt>
+                  <dd class="mt-2 font-semibold">{nextMeetup.date}</dd>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
+                    Time
+                  </dt>
+                  <dd class="mt-2 font-semibold">{nextMeetup.time}</dd>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                  <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
+                    Location
+                  </dt>
+                  <dd class="mt-2 font-semibold">{nextMeetup.location}</dd>
+                </div>
+              </dl>
+              <div class="mt-4 space-y-3 leading-7 text-slate-300 [&_a]:inline-flex [&_a]:rounded-full [&_a]:bg-amber-300 [&_a]:px-4 [&_a]:py-2 [&_a]:font-semibold [&_a]:text-slate-950 [&_a]:shadow-sm [&_a]:shadow-slate-950/20 [&_a]:transition-colors [&_a:hover]:bg-amber-200">
+                {nextMeetup.registrationLink ? (
+                  <a
+                    href={nextMeetup.registrationLink}
+                    title="Register now for the next meetup"
+                  >
+                    Register now
+                  </a>
+                ) : (
+                  <p class="text-slate-400">Registration not open yet.</p>
+                )}
+                <p>{nextMeetup.hostNote}</p>
+              </div>
             </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <dt
-                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
-              >
-                Time
-              </dt>
-              <dd class="mt-2 font-semibold">{nextMeetup.time}</dd>
-            </div>
-            <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-              <dt
-                class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400"
-              >
-                Location
-              </dt>
-              <dd class="mt-2 font-semibold">{nextMeetup.location}</dd>
-            </div>
-          </dl>
-          <div
-            class="mt-4 space-y-3 leading-7 text-slate-300 [&_a]:inline-flex [&_a]:rounded-full [&_a]:bg-amber-300 [&_a]:px-4 [&_a]:py-2 [&_a]:font-semibold [&_a]:text-slate-950 [&_a]:shadow-sm [&_a]:shadow-slate-950/20 [&_a]:transition-colors [&_a:hover]:bg-amber-200"
-          >
-            {
-              nextMeetup.registrationLink ? (
-                <a
-                  href={nextMeetup.registrationLink}
-                  title="Register now for the next meetup"
-                >
-                  Register now
-                </a>
-              ) : (
-                <p class="text-slate-400">Registration not open yet.</p>
-              )
-            }
-            <p>{nextMeetup.hostNote}</p>
           </div>
-        </div>
-      </div>
+        ) : (
+          <div class="p-6 sm:p-8">
+            <h2
+              id="next-meetup-heading"
+              class="max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl"
+            >
+              TBD (in two to four months) - Stay Tuned
+            </h2>
+          </div>
+        )
+      }
     </section>
 
     <div class="grid gap-6 md:grid-cols-2">
