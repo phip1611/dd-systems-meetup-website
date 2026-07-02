@@ -10,13 +10,13 @@ export interface NextMeetup {
   hostNote: string;
 }
 
-export const nextMeetup: NextMeetup | null = null;
-/* export const nextMeetup: NextMeetup | null = {
-  date: "Thu., May 21st, 2026",
+// export const nextMeetup: NextMeetup | null = null;
+export const nextMeetup: NextMeetup | null = {
+  date: "Wed., Sep 2nd, 2026",
   time: "18:00 - 22:00",
-  startDateIso: "2026-05-21T18:00:00+02:00",
-  endDateIso: "2026-05-21T22:00:00+02:00",
-  location: "Genode Labs",
-  registrationLink: "https://signup.ukvly.org/2026-genode-labs/",
-  hostNote: "Open for more 2026 hosts - please reach out!",
-}; */
+  startDateIso: "2026-09-02T18:00:00+02:00",
+  endDateIso: "2026-09-02T22:00:00+02:00",
+  location: "Barkhausen Institut",
+  // registrationLink: "https://signup.ukvly.org/2026-genode-labs/",
+  hostNote: "Open for more 2026/2027 hosts - please reach out!",
+};
