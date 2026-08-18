@@ -68,7 +68,7 @@
       packages = forAllSystems (
         system: pkgs:
         let
-          npmDepsHash = "sha256-p4LVjDFILw/p3DCt6QfJvRL/qxmibmYsZ7YP3oPL720=";
+          npmDepsHash = "sha256-8ooyO7mLI1bupDyxsjx29IAMix67P8hxTiyWYazCXIw=";
           website = pkgs.buildNpmPackage {
             inherit npmDepsHash;
             pname = "dd-systems-meetup-website";
