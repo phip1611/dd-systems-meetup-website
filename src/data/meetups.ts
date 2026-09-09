@@ -33,57 +33,58 @@ export interface PastMeetup {
  */
 export const pastMeetups: PastMeetup[] = [
   {
-    id: "2026_02_24",
-    label: "2026-02-24 @ TU Dresden, Andreas-Pfitzmann-Bau",
-    introHtml: `Prof. Dr. Horst Schirmeier from the chair of Operating
-      Systems at TU Dresden hosted our 8th meetup in total and first &amp;
-      meetup of 2026. The meetup brought together <strong>40
-      attendees</strong> from 18 affiliations to the Andreas-Pfitzmann-Bau
-      where we started with interesting talks and concluded the evening in an
-      open setting with drinks and pizza. Special thanks to
-      <a href="https://www.kernkonzept.com/" title="Kernkonzept">Kernkonzept</a>
-      for sponsoring!`,
+    id: "2026_09_02",
+    label: "2026-09-02 @ Barkhausen Institut",
+    introHtml: `After a pause of two years, we've been invited again by
+    Barkhausen Institut, initiated by Dr. Stefan Köpsel. The late summer meetup
+    came with a vibrant set of talks and an interactive quiz with 37 attendees.
+    Once again, we had new faces which we are particular proud of. The word is
+    spreading!
+    `,
     talks: [
       {
-        title: "SOSP 2026 Prague Pitch",
-        speakerHtml: "Martin Decky, Kernkonzept",
+        title: "Gamekernel: Unleashing eBPF for Extensibility and Prototyping",
+        speakerHtml: "Nicholas Gordon, Barkhausen Institut",
       },
       {
-        title:
-          "Confidential Computing Revisited: Usability, Market, Standpoints and Trends",
-        speakerHtml: "Matthias Gries, Cyberus Technology",
-        link: {
-          href: "https://hal.science/hal-05504115v1",
-          label: "paper",
-          title:
-            "Confidential Computing Revisited: Usability, Market, Standpoints and Trends",
-        },
+        title: "HWaaS: Open Source HIL Test Automation",
+        speakerHtml: "Markus Napierkowsky, Cyberus Technology",
       },
       {
-        title:
-          "Codevyr - Experimental Platform for Understanding code bases by Querying them",
-        speakerHtml: "Maksym Planeta, Exostellar",
-        link: {
-          href: "https://www.codevyr.com/",
-          label: "link",
-          title: "Codevyr",
-        },
+        title: "HWaaS: Open Source HIL Test Automation",
+        speakerHtml: "Thorsten Seychab, Freelancer/toddeTV",
       },
     ],
     outroHtml:
-      "Thanks to all attendees, speakers, our host, and of course also our sponsor!",
-    images: [
+      "Thanks to all attendees, speakers, Dr. Stefan Köpsel and the Barkhausen Institut!",
+    images: [],
+  },
+  {
+    id: "2026_05_21",
+    label: "2026-05-21 @ Genode Labs",
+    introHtml: `We had the pleasure of being hosted by Genode Labs once again.
+    With 30 attendees from a variety of affiliations, we enjoyed lively
+    discussions that continued well into the evening.
+
+    Notable in the discussions of this meetup was how fast agentic coding came
+    into our domain. The agentic coding capabilities of known top-tier AI/LLM
+    providers in low-level software have made significant progress just since
+    the beginning of the year. We had many interesting (and also a little concerned)
+    discussions about what this will lead to and what will be the new normal in a
+    couple of years.
+    `,
+    talks: [
       {
-        src: "/images/meetups/2026-02-24-tu-dresden/20260224_184748.webp",
-        alt: "Matthias Gries presenting his talk",
-        title: "Matthias Gries presenting his talk",
+        title: "When the configuration becomes the data model",
+        speakerHtml: "Norman Feske, Genode Labs",
       },
       {
-        src: "/images/meetups/2026-02-24-tu-dresden/20260224_191123.webp",
-        alt: "Maksym Planeta presenting his talk",
-        title: "Maksym Planeta presenting his talk",
+        title: "Design Space for Memory Safety",
+        speakerHtml: "Prof. Dr. Michael Engel, Uni Bamberg",
       },
     ],
+    outroHtml: "Thanks to all attendees, speakers, and of course Genode Labs!",
+    images: [],
   },
   {
     id: "2025_12_04",
