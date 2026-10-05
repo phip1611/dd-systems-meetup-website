@@ -10,15 +10,13 @@ export interface NextMeetup {
   hostNote: string;
 }
 
-export const nextMeetup: NextMeetup | null = null;
-/*
+// export const nextMeetup: NextMeetup | null = null;
 export const nextMeetup: NextMeetup | null = {
-  date: "Wed., Sep 2nd, 2026",
+  date: "Thu., Nov 26th, 2026",
   time: "18:00 - 22:00",
-  startDateIso: "2026-09-02T18:00:00+02:00",
-  endDateIso: "2026-09-02T22:00:00+02:00",
-  location: "Barkhausen Institut",
-  registrationLink: "https://signup.ukvly.org/2026-bi/",
-  hostNote: "Open for more 2026/2027 hosts - please reach out!",
+  startDateIso: "2026-11-26T18:00:00+01:00",
+  endDateIso: "2026-11-26T22:00:00+01:00",
+  location: "Amazon AWS (Amazon Development Center Germany GmbH)",
+  // registrationLink: "https://signup.ukvly.org/2026-bi/",
+  hostNote: "Final meetup of 2026. Open for more 2027 hosts - please reach out!",
 };
-*/
