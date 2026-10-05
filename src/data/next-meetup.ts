@@ -18,5 +18,6 @@ export const nextMeetup: NextMeetup | null = {
   endDateIso: "2026-11-26T22:00:00+01:00",
   location: "Amazon AWS (Amazon Development Center Germany GmbH)",
   // registrationLink: "https://signup.ukvly.org/2026-bi/",
-  hostNote: "Final meetup of 2026. Open for more 2027 hosts - please reach out!",
+  hostNote:
+    "Final meetup of 2026. Open for more 2027 hosts - please reach out!",
 };
