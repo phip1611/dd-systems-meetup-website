@@ -51,8 +51,8 @@ export const pastMeetups: PastMeetup[] = [
         speakerHtml: "Markus Napierkowsky, Cyberus Technology",
       },
       {
-        title: "HWaaS: Open Source HIL Test Automation",
-        speakerHtml: "Thorsten Seychab, Freelancer/toddeTV",
+        title: "Segfaults, Systems & Surprises (Quiz)",
+        speakerHtml: "Thorsten Seychab, Self-employed, todde.tv",
       },
     ],
     outroHtml:
