@@ -51,7 +51,7 @@ export const pastMeetups: PastMeetup[] = [
         speakerHtml: "Markus Napierkowsky, Cyberus Technology",
       },
       {
-        title: "Segfaults, Systems & Surprises (Quiz)",
+        title: "Segfaults, Systems & Surprises",
         speakerHtml: "Thorsten Seychab, Self-employed, todde.tv",
       },
     ],
