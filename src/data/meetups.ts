@@ -90,7 +90,7 @@ export const pastMeetups: PastMeetup[] = [
     id: "2026_02_24",
     label: "2026-02-24 @ TU Dresden, Andreas-Pfitzmann-Bau",
     introHtml: `Prof. Dr. Horst Schirmeier from the chair of Operating
-      Systems at TU Dresden hosted our 8th meetup in total and first &amp;
+      Systems at TU Dresden hosted our 8th meetup in total and first
       meetup of 2026. The meetup brought together <strong>40
       attendees</strong> from 18 affiliations to the Andreas-Pfitzmann-Bau
       where we started with interesting talks and concluded the evening in an
