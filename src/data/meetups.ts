@@ -87,6 +87,59 @@ export const pastMeetups: PastMeetup[] = [
     images: [],
   },
   {
+    id: "2026_02_24",
+    label: "2026-02-24 @ TU Dresden, Andreas-Pfitzmann-Bau",
+    introHtml: `Prof. Dr. Horst Schirmeier from the chair of Operating
+      Systems at TU Dresden hosted our 8th meetup in total and first &amp;
+      meetup of 2026. The meetup brought together <strong>40
+      attendees</strong> from 18 affiliations to the Andreas-Pfitzmann-Bau
+      where we started with interesting talks and concluded the evening in an
+      open setting with drinks and pizza. Special thanks to
+      <a href="https://www.kernkonzept.com/" title="Kernkonzept">Kernkonzept</a>
+      for sponsoring!`,
+    talks: [
+      {
+        title: "SOSP 2026 Prague Pitch",
+        speakerHtml: "Martin Decky, Kernkonzept",
+      },
+      {
+        title:
+          "Confidential Computing Revisited: Usability, Market, Standpoints and Trends",
+        speakerHtml: "Matthias Gries, Cyberus Technology",
+        link: {
+          href: "https://hal.science/hal-05504115v1",
+          label: "paper",
+          title:
+            "Confidential Computing Revisited: Usability, Market, Standpoints and Trends",
+        },
+      },
+      {
+        title:
+          "Codevyr - Experimental Platform for Understanding code bases by Querying them",
+        speakerHtml: "Maksym Planeta, Exostellar",
+        link: {
+          href: "https://www.codevyr.com/",
+          label: "link",
+          title: "Codevyr",
+        },
+      },
+    ],
+    outroHtml:
+      "Thanks to all attendees, speakers, our host, and of course also our sponsor!",
+    images: [
+      {
+        src: "/images/meetups/2026-02-24-tu-dresden/20260224_184748.webp",
+        alt: "Matthias Gries presenting his talk",
+        title: "Matthias Gries presenting his talk",
+      },
+      {
+        src: "/images/meetups/2026-02-24-tu-dresden/20260224_191123.webp",
+        alt: "Maksym Planeta presenting his talk",
+        title: "Maksym Planeta presenting his talk",
+      },
+    ],
+  },
+  {
     id: "2025_12_04",
     label: "2025-12-04 @ Cyberus Technology",
     introHtml: `Our 7th meetup in total and fifth &amp; final meetup of 2025
