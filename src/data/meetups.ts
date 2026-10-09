@@ -38,7 +38,7 @@ export const pastMeetups: PastMeetup[] = [
     introHtml: `After a pause of two years, we've been invited again by
     Barkhausen Institut, initiated by Dr. Stefan Köpsel. The late summer meetup
     came with a vibrant set of talks and an interactive quiz with 37 attendees.
-    Once again, we had new faces which we are particular proud of. The word is
+    Once again, we had new faces which we are particularly proud of. The word is
     spreading!
     `,
     talks: [
@@ -158,7 +158,7 @@ export const pastMeetups: PastMeetup[] = [
       {
         title: "Exploring the Memory-Safety Design Space",
         speakerHtml:
-          '<span class="text-decoration-line-through">Prof. Dr. Michael Engel</span> (sick and replaced by) Werner Haas, Universit&auml;t Bamberg',
+          '<span class="line-through">Prof. Dr. Michael Engel</span> (sick and replaced by) Werner Haas, Universit&auml;t Bamberg',
       },
       {
         title: "Identity Crisis in Attested TLS for Confidential Computing",
@@ -251,7 +251,7 @@ export const pastMeetups: PastMeetup[] = [
       },
     ],
     outroHtml:
-      "After that, we had tasty food and drinks with lively discussions until 22:00 o'clock.",
+      "After that, we had tasty food and drinks with lively discussions until 22:00.",
     images: [
       {
         src: "/images/meetups/2025-08-07-amazon-aws/20250807_183031.jpg.webp",
@@ -287,7 +287,7 @@ export const pastMeetups: PastMeetup[] = [
       },
     ],
     outroHtml:
-      "After that, we had snacks and drinks with lively discussions until 22:30 o'clock.",
+      "After that, we had snacks and drinks with lively discussions until 22:30.",
     images: [
       {
         src: "/images/meetups/2025-05-08-genode-labs/DSC00140_cropped.jpg.webp",
@@ -329,7 +329,7 @@ export const pastMeetups: PastMeetup[] = [
       },
     ],
     outroHtml:
-      "After that, we had drinks and pizza with lively technical discussions until 22:15 o'clock.",
+      "After that, we had drinks and pizza with lively technical discussions until 22:15.",
     images: [
       {
         src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
@@ -346,7 +346,7 @@ export const pastMeetups: PastMeetup[] = [
   {
     id: "2024_07_18",
     label: "2024-07-18 @ Barkhausen Institut",
-    introHtml: `We had our second meetup at the Barkhausen Institute near
+    introHtml: `We had our second meetup at the Barkhausen Institut near
       Postplatz. Although it was summer vacation time, we gathered 15 people
       from various companies and educational/research institutions. After an
       interesting lightning talk by Michael Roitzsch (BI), a lively discussion
@@ -371,7 +371,7 @@ export const pastMeetups: PastMeetup[] = [
     introHtml: `This was the first meetup after the long Corona break.
       Previously, the meetup was called Mikrokernstammtisch. Now, it is called
       systems meetup. We had 28 attendees from multiple local companies and the
-      TU dresden. It was a great kick-off! The event had pizza and drinks
+      TU Dresden. It was a great kick-off! The event had pizza and drinks
       sponsored by Wirtschaftsf&ouml;rderung Sachsen GmbH.`,
     talks: [],
   },
