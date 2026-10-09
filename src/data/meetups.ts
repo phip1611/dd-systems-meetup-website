@@ -220,15 +220,15 @@ export const pastMeetups: PastMeetup[] = [
     images: [
       {
         src: "/images/meetups/2025-10-02-huawei/meetup.webp",
-        width: 1378,
-        height: 775,
+        width: 1000,
+        height: 562,
         alt: "Systems Meetup at Huawei: Many Discussions",
         title: "Systems Meetup at Huawei: Many Discussions",
       },
       {
         src: "/images/meetups/2025-10-02-huawei/food.webp",
-        width: 1278,
-        height: 1345,
+        width: 1000,
+        height: 1052,
         alt: "Systems Meetup at Huawei: Tasty Food",
         title: "Systems Meetup at Huawei: Tasty Food",
       },
@@ -299,16 +299,16 @@ export const pastMeetups: PastMeetup[] = [
     images: [
       {
         src: "/images/meetups/2025-05-08-genode-labs/DSC00140_cropped.jpg.webp",
-        width: 1200,
-        height: 602,
+        width: 1000,
+        height: 502,
         alt: "Systems Meetup at Genode Labs",
         title: "Systems Meetup at Genode Labs",
         credit: "📷 Martin Decky",
       },
       {
         src: "/images/meetups/2025-05-08-genode-labs/DSC00147_cropped.jpg.webp",
-        width: 1200,
-        height: 787,
+        width: 1000,
+        height: 656,
         alt: "Systems Meetup at Genode Labs",
         title: "Systems Meetup at Genode Labs",
         credit: "📷 Martin Decky",
@@ -344,15 +344,15 @@ export const pastMeetups: PastMeetup[] = [
     images: [
       {
         src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
-        width: 3136,
-        height: 1724,
+        width: 1000,
+        height: 550,
         alt: "Systems Meetup at TU Dresden",
         title: "Systems Meetup at TU Dresden",
       },
       {
         src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_190440.jpg.webp",
-        width: 4000,
-        height: 2420,
+        width: 1000,
+        height: 605,
         alt: "Lukas Beierlieb presenting his work on SmartVMI",
         title: "Lukas Beierlieb presenting his work on SmartVMI",
       },
