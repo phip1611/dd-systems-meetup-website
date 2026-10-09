@@ -5,10 +5,11 @@ import type { PastMeetup } from "../data/meetups";
 
 interface Props {
   meetup: PastMeetup;
+  number: number;
   expanded: boolean;
 }
 
-const { meetup, expanded } = Astro.props;
+const { meetup, number, expanded } = Astro.props;
 ---
 
 <details
@@ -18,8 +19,15 @@ const { meetup, expanded } = Astro.props;
   <summary
     class="flex cursor-pointer list-none items-center justify-between gap-4 px-4 py-3 text-left transition-colors hover:bg-cyan-50/70 dark:hover:bg-cyan-950/40 [&::-webkit-details-marker]:hidden"
   >
-    <span class="min-w-0 font-medium text-slate-950 dark:text-stone-50">
-      {meetup.label}
+    <span class="flex min-w-0 items-baseline gap-3">
+      <span
+        class="w-[3ch] shrink-0 text-right font-mono text-xs text-cyan-800 dark:text-cyan-300"
+      >
+        <span class="text-slate-400 dark:text-slate-500">#</span>{number}
+      </span>
+      <span class="min-w-0 font-medium text-slate-950 dark:text-stone-50">
+        {meetup.label}
+      </span>
     </span>
     <svg
       aria-hidden="true"

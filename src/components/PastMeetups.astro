@@ -15,7 +15,11 @@ const { meetups } = Astro.props;
   <!-- The first item is expanded by default -->
   {
     meetups.map((meetup, index) => (
-      <MeetupAccordionItem meetup={meetup} expanded={index === 0} />
+      <MeetupAccordionItem
+        meetup={meetup}
+        number={meetups.length - index}
+        expanded={index === 0}
+      />
     ))
   }
 </div>
