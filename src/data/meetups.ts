@@ -158,7 +158,7 @@ export const pastMeetups: PastMeetup[] = [
       {
         title: "Exploring the Memory-Safety Design Space",
         speakerHtml:
-          '<span class="text-decoration-line-through">Prof. Dr. Michael Engel</span> (sick and replaced by) Werner Haas, Universit&auml;t Bamberg',
+          '<span class="line-through">Prof. Dr. Michael Engel</span> (sick and replaced by) Werner Haas, Universit&auml;t Bamberg',
       },
       {
         title: "Identity Crisis in Attested TLS for Confidential Computing",
