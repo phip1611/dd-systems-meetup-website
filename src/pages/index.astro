@@ -94,24 +94,18 @@ const nextMeetupStructuredData = nextMeetup
             </h2>
             <div>
               <dl class="grid gap-3 sm:grid-cols-3">
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
-                    Date
-                  </dt>
-                  <dd class="mt-2 font-semibold">{nextMeetup.date}</dd>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
-                    Time
-                  </dt>
-                  <dd class="mt-2 font-semibold">{nextMeetup.time}</dd>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                  <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
-                    Location
-                  </dt>
-                  <dd class="mt-2 font-semibold">{nextMeetup.location}</dd>
-                </div>
+                {[
+                  ["Date", nextMeetup.date],
+                  ["Time", nextMeetup.time],
+                  ["Location", nextMeetup.location],
+                ].map(([term, value]) => (
+                  <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                    <dt class="font-mono text-[0.68rem] uppercase tracking-[0.22em] text-slate-400">
+                      {term}
+                    </dt>
+                    <dd class="mt-2 font-semibold">{value}</dd>
+                  </div>
+                ))}
               </dl>
               <div class="mt-4 space-y-3 leading-7 text-slate-300">
                 {nextMeetup.registrationLink ? (
