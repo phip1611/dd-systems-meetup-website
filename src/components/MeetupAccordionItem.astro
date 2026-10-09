@@ -1,6 +1,7 @@
 ---
 /* Renders one past meetup entry as an expandable disclosure panel. */
 
+import { Image } from "astro:assets";
 import type { PastMeetup } from "../data/meetups";
 
 interface Props {
@@ -71,13 +72,12 @@ const { meetup, number, expanded } = Astro.props;
     {
       meetup.images?.map((image) => (
         <>
-          <img
+          <Image
             src={image.src}
-            width={image.width}
-            height={image.height}
             alt={image.alt}
             title={image.title}
-            loading="lazy"
+            widths={[450, 900]}
+            sizes="(min-width: 768px) 450px, 100vw"
             class="w-full rounded-lg border border-slate-200 dark:border-slate-700"
           />
           {image.credit && (

@@ -1,5 +1,21 @@
 /* Structured archive data for all past meetup recaps. */
 
+import type { ImageMetadata } from "astro";
+
+const meetupImages = import.meta.glob<ImageMetadata>("../assets/meetups/*/*", {
+  eager: true,
+  import: "default",
+});
+
+/** Resolves a photo path relative to `src/assets/meetups/`. */
+function meetupImage(path: string): ImageMetadata {
+  const image = meetupImages[`../assets/meetups/${path}`];
+  if (!image) {
+    throw new Error(`Meetup image not found: ${path}`);
+  }
+  return image;
+}
+
 export interface MeetupLink {
   href: string;
   label: string;
@@ -13,9 +29,7 @@ export interface MeetupTalk {
 }
 
 export interface MeetupImage {
-  src: string;
-  width: number;
-  height: number;
+  src: ImageMetadata;
   alt: string;
   title: string;
   credit?: string;
@@ -126,16 +140,12 @@ export const pastMeetups: PastMeetup[] = [
       "Thanks to all attendees, speakers, our host, and of course also our sponsor!",
     images: [
       {
-        src: "/images/meetups/2026-02-24-tu-dresden/20260224_184748.webp",
-        width: 1000,
-        height: 562,
+        src: meetupImage("2026-02-24-tu-dresden/20260224_184748.webp"),
         alt: "Matthias Gries presenting his talk",
         title: "Matthias Gries presenting his talk",
       },
       {
-        src: "/images/meetups/2026-02-24-tu-dresden/20260224_191123.webp",
-        width: 1000,
-        height: 563,
+        src: meetupImage("2026-02-24-tu-dresden/20260224_191123.webp"),
         alt: "Maksym Planeta presenting his talk",
         title: "Maksym Planeta presenting his talk",
       },
@@ -174,9 +184,7 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had tasty food and drinks including Gl&uuml;hwein with lively discussions until 22:30.",
     images: [
       {
-        src: "/images/meetups/2025-12-04-cyberus/20251204_200936.webp",
-        width: 800,
-        height: 472,
+        src: meetupImage("2025-12-04-cyberus/20251204_200936.webp"),
         alt: "Systems Meetup at Cyberus Technology (Christmas Edition)",
         title: "Systems Meetup at Cyberus Technology (Christmas Edition)",
       },
@@ -219,16 +227,12 @@ export const pastMeetups: PastMeetup[] = [
       hosts!`,
     images: [
       {
-        src: "/images/meetups/2025-10-02-huawei/meetup.webp",
-        width: 1000,
-        height: 562,
+        src: meetupImage("2025-10-02-huawei/meetup.webp"),
         alt: "Systems Meetup at Huawei: Many Discussions",
         title: "Systems Meetup at Huawei: Many Discussions",
       },
       {
-        src: "/images/meetups/2025-10-02-huawei/food.webp",
-        width: 1000,
-        height: 1052,
+        src: meetupImage("2025-10-02-huawei/food.webp"),
         alt: "Systems Meetup at Huawei: Tasty Food",
         title: "Systems Meetup at Huawei: Tasty Food",
       },
@@ -259,16 +263,12 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had tasty food and drinks with lively discussions until 22:00.",
     images: [
       {
-        src: "/images/meetups/2025-08-07-amazon-aws/20250807_183031.jpg.webp",
-        width: 600,
-        height: 362,
+        src: meetupImage("2025-08-07-amazon-aws/20250807_183031.jpg.webp"),
         alt: "Systems Meetup at Amazon AWS",
         title: "Systems Meetup at Amazon AWS",
       },
       {
-        src: "/images/meetups/2025-08-07-amazon-aws/20250807_183043.jpg.webp",
-        width: 600,
-        height: 408,
+        src: meetupImage("2025-08-07-amazon-aws/20250807_183043.jpg.webp"),
         alt: "Systems Meetup at Amazon AWS",
         title: "Systems Meetup at Amazon AWS",
       },
@@ -298,17 +298,13 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had snacks and drinks with lively discussions until 22:30.",
     images: [
       {
-        src: "/images/meetups/2025-05-08-genode-labs/DSC00140_cropped.jpg.webp",
-        width: 1000,
-        height: 502,
+        src: meetupImage("2025-05-08-genode-labs/DSC00140_cropped.jpg.webp"),
         alt: "Systems Meetup at Genode Labs",
         title: "Systems Meetup at Genode Labs",
         credit: "📷 Martin Decky",
       },
       {
-        src: "/images/meetups/2025-05-08-genode-labs/DSC00147_cropped.jpg.webp",
-        width: 1000,
-        height: 656,
+        src: meetupImage("2025-05-08-genode-labs/DSC00147_cropped.jpg.webp"),
         alt: "Systems Meetup at Genode Labs",
         title: "Systems Meetup at Genode Labs",
         credit: "📷 Martin Decky",
@@ -343,16 +339,14 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had drinks and pizza with lively technical discussions until 22:15.",
     images: [
       {
-        src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
-        width: 1000,
-        height: 550,
+        src: meetupImage(
+          "2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
+        ),
         alt: "Systems Meetup at TU Dresden",
         title: "Systems Meetup at TU Dresden",
       },
       {
-        src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_190440.jpg.webp",
-        width: 1000,
-        height: 605,
+        src: meetupImage("2025-01-21-tu-dresden-inf/20250121_190440.jpg.webp"),
         alt: "Lukas Beierlieb presenting his work on SmartVMI",
         title: "Lukas Beierlieb presenting his work on SmartVMI",
       },
@@ -368,16 +362,16 @@ export const pastMeetups: PastMeetup[] = [
     talks: [],
     images: [
       {
-        src: "/images/meetups/2024-07-18-barkhausen-institut/20240718_181010.jpg.webp",
-        width: 500,
-        height: 375,
+        src: meetupImage(
+          "2024-07-18-barkhausen-institut/20240718_181010.jpg.webp",
+        ),
         alt: "Snacks and Drinks",
         title: "Snacks and Drinks",
       },
       {
-        src: "/images/meetups/2024-07-18-barkhausen-institut/20240718_182022.jpg.webp",
-        width: 500,
-        height: 375,
+        src: meetupImage(
+          "2024-07-18-barkhausen-institut/20240718_182022.jpg.webp",
+        ),
         alt: "Demonstrator of the M3 Architecture",
         title: "Demonstrator of the M3 Architecture",
       },
