@@ -251,7 +251,7 @@ export const pastMeetups: PastMeetup[] = [
       },
     ],
     outroHtml:
-      "After that, we had tasty food and drinks with lively discussions until 22:00 o'clock.",
+      "After that, we had tasty food and drinks with lively discussions until 22:00.",
     images: [
       {
         src: "/images/meetups/2025-08-07-amazon-aws/20250807_183031.jpg.webp",
@@ -287,7 +287,7 @@ export const pastMeetups: PastMeetup[] = [
       },
     ],
     outroHtml:
-      "After that, we had snacks and drinks with lively discussions until 22:30 o'clock.",
+      "After that, we had snacks and drinks with lively discussions until 22:30.",
     images: [
       {
         src: "/images/meetups/2025-05-08-genode-labs/DSC00140_cropped.jpg.webp",
@@ -329,7 +329,7 @@ export const pastMeetups: PastMeetup[] = [
       },
     ],
     outroHtml:
-      "After that, we had drinks and pizza with lively technical discussions until 22:15 o'clock.",
+      "After that, we had drinks and pizza with lively technical discussions until 22:15.",
     images: [
       {
         src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
