@@ -39,8 +39,10 @@ and reachable under <https://ukvly.org>.
 - `src/components/` contains reusable page sections.
 - `src/data/meetups.ts` contains the past meetup data. Add a new past event by
   inserting a new object at the top of `pastMeetups`.
-- Files in `public/` are copied unchanged to the site root. Put meetup images
-  below `public/images/meetups/...` and reference them as `/images/...`.
+- Files in `public/` are copied unchanged to the site root.
+- Put meetup photos below `src/assets/meetups/<date>-<host>/` and reference
+  them with `meetupImage("<date>-<host>/<file>")` in `src/data/meetups.ts`.
+  Astro resizes them at build time.
 
 ## Converting Images to Webp
 

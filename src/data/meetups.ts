@@ -1,5 +1,21 @@
 /* Structured archive data for all past meetup recaps. */
 
+import type { ImageMetadata } from "astro";
+
+const meetupImages = import.meta.glob<ImageMetadata>("../assets/meetups/*/*", {
+  eager: true,
+  import: "default",
+});
+
+/** Resolves a photo path relative to `src/assets/meetups/`. */
+function meetupImage(path: string): ImageMetadata {
+  const image = meetupImages[`../assets/meetups/${path}`];
+  if (!image) {
+    throw new Error(`Meetup image not found: ${path}`);
+  }
+  return image;
+}
+
 export interface MeetupLink {
   href: string;
   label: string;
@@ -13,14 +29,13 @@ export interface MeetupTalk {
 }
 
 export interface MeetupImage {
-  src: string;
+  src: ImageMetadata;
   alt: string;
   title: string;
   credit?: string;
 }
 
 export interface PastMeetup {
-  id: string;
   label: string;
   introHtml: string;
   talks: MeetupTalk[];
@@ -33,7 +48,6 @@ export interface PastMeetup {
  */
 export const pastMeetups: PastMeetup[] = [
   {
-    id: "2026_09_02",
     label: "2026-09-02 @ Barkhausen Institut",
     introHtml: `After a pause of two years, we've been invited again by
     Barkhausen Institut, initiated by Dr. Stefan Köpsel. The late summer meetup
@@ -60,7 +74,6 @@ export const pastMeetups: PastMeetup[] = [
     images: [],
   },
   {
-    id: "2026_05_21",
     label: "2026-05-21 @ Genode Labs",
     introHtml: `We had the pleasure of being hosted by Genode Labs once again.
     With 30 attendees from a variety of affiliations, we enjoyed lively
@@ -87,7 +100,6 @@ export const pastMeetups: PastMeetup[] = [
     images: [],
   },
   {
-    id: "2026_02_24",
     label: "2026-02-24 @ TU Dresden, Andreas-Pfitzmann-Bau",
     introHtml: `Prof. Dr. Horst Schirmeier from the chair of Operating
       Systems at TU Dresden hosted our 8th meetup in total and first
@@ -128,19 +140,18 @@ export const pastMeetups: PastMeetup[] = [
       "Thanks to all attendees, speakers, our host, and of course also our sponsor!",
     images: [
       {
-        src: "/images/meetups/2026-02-24-tu-dresden/20260224_184748.webp",
+        src: meetupImage("2026-02-24-tu-dresden/20260224_184748.webp"),
         alt: "Matthias Gries presenting his talk",
         title: "Matthias Gries presenting his talk",
       },
       {
-        src: "/images/meetups/2026-02-24-tu-dresden/20260224_191123.webp",
+        src: meetupImage("2026-02-24-tu-dresden/20260224_191123.webp"),
         alt: "Maksym Planeta presenting his talk",
         title: "Maksym Planeta presenting his talk",
       },
     ],
   },
   {
-    id: "2025_12_04",
     label: "2025-12-04 @ Cyberus Technology",
     introHtml: `Our 7th meetup in total and fifth &amp; final meetup of 2025
       brought over <strong>40 attendees</strong> from over 20 affiliations to
@@ -173,14 +184,13 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had tasty food and drinks including Gl&uuml;hwein with lively discussions until 22:30.",
     images: [
       {
-        src: "/images/meetups/2025-12-04-cyberus/20251204_200936.webp",
+        src: meetupImage("2025-12-04-cyberus/20251204_200936.webp"),
         alt: "Systems Meetup at Cyberus Technology (Christmas Edition)",
         title: "Systems Meetup at Cyberus Technology (Christmas Edition)",
       },
     ],
   },
   {
-    id: "2025_10_02",
     label: "2025-10-02 @ Huawei (Dresden Research Center)",
     introHtml: `For the first time, with <strong>45</strong> attendees, we
       crossed the 40 people boundary! <small>To be fair, from the 45 people
@@ -217,19 +227,18 @@ export const pastMeetups: PastMeetup[] = [
       hosts!`,
     images: [
       {
-        src: "/images/meetups/2025-10-02-huawei/meetup.webp",
+        src: meetupImage("2025-10-02-huawei/meetup.webp"),
         alt: "Systems Meetup at Huawei: Many Discussions",
         title: "Systems Meetup at Huawei: Many Discussions",
       },
       {
-        src: "/images/meetups/2025-10-02-huawei/food.webp",
+        src: meetupImage("2025-10-02-huawei/food.webp"),
         alt: "Systems Meetup at Huawei: Tasty Food",
         title: "Systems Meetup at Huawei: Tasty Food",
       },
     ],
   },
   {
-    id: "2025_08_07",
     label: "2025-08-07 @ Amazon AWS",
     introHtml: `Our summer meetup brought together <strong>35
       attendees</strong> from over 12 affiliations. The evening featured two
@@ -254,19 +263,18 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had tasty food and drinks with lively discussions until 22:00.",
     images: [
       {
-        src: "/images/meetups/2025-08-07-amazon-aws/20250807_183031.jpg.webp",
+        src: meetupImage("2025-08-07-amazon-aws/20250807_183031.jpg.webp"),
         alt: "Systems Meetup at Amazon AWS",
         title: "Systems Meetup at Amazon AWS",
       },
       {
-        src: "/images/meetups/2025-08-07-amazon-aws/20250807_183043.jpg.webp",
+        src: meetupImage("2025-08-07-amazon-aws/20250807_183043.jpg.webp"),
         alt: "Systems Meetup at Amazon AWS",
         title: "Systems Meetup at Amazon AWS",
       },
     ],
   },
   {
-    id: "2025_05_08",
     label: "2025-05-08 @ Genode Labs",
     introHtml: `Our spring meetup brought together over <strong>30
       attendees</strong> from over 10 affiliations. The evening featured three
@@ -290,13 +298,13 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had snacks and drinks with lively discussions until 22:30.",
     images: [
       {
-        src: "/images/meetups/2025-05-08-genode-labs/DSC00140_cropped.jpg.webp",
+        src: meetupImage("2025-05-08-genode-labs/DSC00140_cropped.jpg.webp"),
         alt: "Systems Meetup at Genode Labs",
         title: "Systems Meetup at Genode Labs",
         credit: "📷 Martin Decky",
       },
       {
-        src: "/images/meetups/2025-05-08-genode-labs/DSC00147_cropped.jpg.webp",
+        src: meetupImage("2025-05-08-genode-labs/DSC00147_cropped.jpg.webp"),
         alt: "Systems Meetup at Genode Labs",
         title: "Systems Meetup at Genode Labs",
         credit: "📷 Martin Decky",
@@ -304,7 +312,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2025_01_21",
     label: "2025-01-21 @ TU Dresden, Andreas-Pfitzmann-Bau",
     introHtml: `Our third and largest meetup to date brought together
       <strong>32 attendees</strong> at the APB building, hosted by Prof. Horst
@@ -332,19 +339,20 @@ export const pastMeetups: PastMeetup[] = [
       "After that, we had drinks and pizza with lively technical discussions until 22:15.",
     images: [
       {
-        src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
+        src: meetupImage(
+          "2025-01-21-tu-dresden-inf/20250121_181108_cropped.jpg.webp",
+        ),
         alt: "Systems Meetup at TU Dresden",
         title: "Systems Meetup at TU Dresden",
       },
       {
-        src: "/images/meetups/2025-01-21-tu-dresden-inf/20250121_190440.jpg.webp",
+        src: meetupImage("2025-01-21-tu-dresden-inf/20250121_190440.jpg.webp"),
         alt: "Lukas Beierlieb presenting his work on SmartVMI",
         title: "Lukas Beierlieb presenting his work on SmartVMI",
       },
     ],
   },
   {
-    id: "2024_07_18",
     label: "2024-07-18 @ Barkhausen Institut",
     introHtml: `We had our second meetup at the Barkhausen Institut near
       Postplatz. Although it was summer vacation time, we gathered 15 people
@@ -354,19 +362,22 @@ export const pastMeetups: PastMeetup[] = [
     talks: [],
     images: [
       {
-        src: "/images/meetups/2024-07-18-barkhausen-institut/20240718_181010.jpg.webp",
+        src: meetupImage(
+          "2024-07-18-barkhausen-institut/20240718_181010.jpg.webp",
+        ),
         alt: "Snacks and Drinks",
         title: "Snacks and Drinks",
       },
       {
-        src: "/images/meetups/2024-07-18-barkhausen-institut/20240718_182022.jpg.webp",
+        src: meetupImage(
+          "2024-07-18-barkhausen-institut/20240718_182022.jpg.webp",
+        ),
         alt: "Demonstrator of the M3 Architecture",
         title: "Demonstrator of the M3 Architecture",
       },
     ],
   },
   {
-    id: "2024_05_16",
     label: "2024-05-16 @ Cyberus Technology",
     introHtml: `This was the first meetup after the long Corona break.
       Previously, the meetup was called Mikrokernstammtisch. Now, it is called

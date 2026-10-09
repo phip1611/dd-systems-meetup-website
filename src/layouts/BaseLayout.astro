@@ -10,8 +10,9 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-const siteUrl = "https://ukvly.org";
-const socialImageUrl = `${siteUrl}/images/logo-wide-1600x900.png`;
+const pageUrl = new URL(Astro.url.pathname, Astro.site).href;
+const socialImageUrl = new URL("/images/logo-wide-1600x900.png", Astro.site)
+  .href;
 ---
 
 <!doctype html>
@@ -31,7 +32,7 @@ const socialImageUrl = `${siteUrl}/images/logo-wide-1600x900.png`;
       content="#020617"
       media="(prefers-color-scheme: dark)"
     />
-    <link rel="canonical" href={siteUrl} />
+    <link rel="canonical" href={pageUrl} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
@@ -41,7 +42,7 @@ const socialImageUrl = `${siteUrl}/images/logo-wide-1600x900.png`;
     <meta property="og:image" content={socialImageUrl} />
     <meta property="og:image:alt" content="Dresden Systems Meetup logo" />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Dresden Systems Meetup" />
 
