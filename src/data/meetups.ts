@@ -20,7 +20,6 @@ export interface MeetupImage {
 }
 
 export interface PastMeetup {
-  id: string;
   label: string;
   introHtml: string;
   talks: MeetupTalk[];
@@ -33,7 +32,6 @@ export interface PastMeetup {
  */
 export const pastMeetups: PastMeetup[] = [
   {
-    id: "2026_09_02",
     label: "2026-09-02 @ Barkhausen Institut",
     introHtml: `After a pause of two years, we've been invited again by
     Barkhausen Institut, initiated by Dr. Stefan Köpsel. The late summer meetup
@@ -60,7 +58,6 @@ export const pastMeetups: PastMeetup[] = [
     images: [],
   },
   {
-    id: "2026_05_21",
     label: "2026-05-21 @ Genode Labs",
     introHtml: `We had the pleasure of being hosted by Genode Labs once again.
     With 30 attendees from a variety of affiliations, we enjoyed lively
@@ -87,7 +84,6 @@ export const pastMeetups: PastMeetup[] = [
     images: [],
   },
   {
-    id: "2026_02_24",
     label: "2026-02-24 @ TU Dresden, Andreas-Pfitzmann-Bau",
     introHtml: `Prof. Dr. Horst Schirmeier from the chair of Operating
       Systems at TU Dresden hosted our 8th meetup in total and first
@@ -140,7 +136,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2025_12_04",
     label: "2025-12-04 @ Cyberus Technology",
     introHtml: `Our 7th meetup in total and fifth &amp; final meetup of 2025
       brought over <strong>40 attendees</strong> from over 20 affiliations to
@@ -180,7 +175,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2025_10_02",
     label: "2025-10-02 @ Huawei (Dresden Research Center)",
     introHtml: `For the first time, with <strong>45</strong> attendees, we
       crossed the 40 people boundary! <small>To be fair, from the 45 people
@@ -229,7 +223,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2025_08_07",
     label: "2025-08-07 @ Amazon AWS",
     introHtml: `Our summer meetup brought together <strong>35
       attendees</strong> from over 12 affiliations. The evening featured two
@@ -266,7 +259,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2025_05_08",
     label: "2025-05-08 @ Genode Labs",
     introHtml: `Our spring meetup brought together over <strong>30
       attendees</strong> from over 10 affiliations. The evening featured three
@@ -304,7 +296,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2025_01_21",
     label: "2025-01-21 @ TU Dresden, Andreas-Pfitzmann-Bau",
     introHtml: `Our third and largest meetup to date brought together
       <strong>32 attendees</strong> at the APB building, hosted by Prof. Horst
@@ -344,7 +335,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2024_07_18",
     label: "2024-07-18 @ Barkhausen Institut",
     introHtml: `We had our second meetup at the Barkhausen Institut near
       Postplatz. Although it was summer vacation time, we gathered 15 people
@@ -366,7 +356,6 @@ export const pastMeetups: PastMeetup[] = [
     ],
   },
   {
-    id: "2024_05_16",
     label: "2024-05-16 @ Cyberus Technology",
     introHtml: `This was the first meetup after the long Corona break.
       Previously, the meetup was called Mikrokernstammtisch. Now, it is called
