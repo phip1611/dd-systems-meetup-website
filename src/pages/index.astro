@@ -19,7 +19,7 @@ const nextMeetupStructuredData = nextMeetup
       endDate: nextMeetup.endDateIso,
       eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
       eventStatus: "https://schema.org/EventScheduled",
-      url: "https://ukvly.org/",
+      url: Astro.site?.href,
       location: {
         "@type": "Place",
         name: nextMeetup.location,
@@ -27,7 +27,7 @@ const nextMeetupStructuredData = nextMeetup
       organizer: {
         "@type": "Organization",
         name: "Dresden Systems Meetup",
-        url: "https://ukvly.org/",
+        url: Astro.site?.href,
       },
       ...(nextMeetup.registrationLink
         ? {
