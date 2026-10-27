@@ -69,7 +69,7 @@
         system: pkgs:
         let
           # npmDepsHash = pkgs.lib.fakeHash;
-          npmDepsHash = "sha256-zMdDkCOea2ehblaJvzrLzsfK81B4MRZXyUgQz01IlGo=";
+          npmDepsHash = "sha256-/AyUH15kK+xhpPVpt9OfHOKCGuyfmI5F3roTWgxVFKg";
           website = pkgs.buildNpmPackage {
             inherit npmDepsHash;
             pname = "dd-systems-meetup-website";
